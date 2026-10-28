@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="description" content="yingjideng 站点地图 - 收录 300+ AI 增强工具，涵盖开发、设计、办公、学习等领域">
+    <title>站点地图 - yingjideng</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8f9fa; }
+        .sitemap-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 40px 0; text-align: center; }
+        .sitemap-header h1 { margin: 0; font-size: 28px; }
+        .sitemap-header p { margin: 10px 0 0; opacity: 0.9; }
+        .sitemap-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .sitemap-section { background: #fff; border-radius: 8px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .sitemap-section h2 { margin: 0 0 16px; font-size: 18px; color: #333; border-bottom: 2px solid #667eea; padding-bottom: 8px; }
+        .sitemap-list { list-style: none; padding: 0; margin: 0; }
+        .sitemap-list li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+        .sitemap-list li:last-child { border-bottom: none; }
+        .sitemap-list a { color: #667eea; text-decoration: none; font-size: 14px; }
+        .sitemap-list a:hover { text-decoration: underline; }
+        .sitemap-list .tool-id { color: #999; font-size: 12px; margin-left: 8px; }
+        .sitemap-stats { text-align: center; color: #666; margin-bottom: 24px; }
+        .sitemap-stats .stat { display: inline-block; margin: 0 20px; }
+        .sitemap-stats .stat-value { font-size: 24px; font-weight: bold; color: #667eea; }
+        .sitemap-stats .stat-label { font-size: 12px; color: #999; }
+        .footer { text-align: center; padding: 40px 0; color: #999; font-size: 12px; }
+        @media (max-width: 768px) {
+            .sitemap-container { padding: 0 15px; }
+            .sitemap-stats .stat { display: block; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="sitemap-header">
+        <h1><i class="fas fa-sitemap"></i> 站点地图</h1>
+        <p>yingjideng — 收录全部工具与页面</p>
+    </header>
+
+    <div class="sitemap-container">
+        <div class="sitemap-stats">
+            <div class="stat">
+                <div class="stat-value" id="stat-tools">0</div>
+                <div class="stat-label">工具总数</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="stat-categories">0</div>
+                <div class="stat-label">分类数量</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">11</div>
+                <div class="stat-label">核心页面</div>
+            </div>
+        </div>
+
+        <!-- 核心页面 -->
+        <div class="sitemap-section">
+            <h2><i class="fas fa-home"></i> 核心页面</h2>
+            <ul class="sitemap-list">
+                <li><a href="index.html">首页 <span class="tool-id">/</span></a></li>
+                <li><a href="category.html">分类总览 <span class="tool-id">/category</span></a></li>
+                <li><a href="favorites.html">我的收藏 <span class="tool-id">/favorites</span></a></li>
+                <li><a href="index.html#about">关于本站 <span class="tool-id">#about</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 分类页面 -->
+        <div class="sitemap-section">
+            <h2><i class="fas fa-th-large"></i> 分类页面</h2>
+            <ul class="sitemap-list" id="sitemap-categories"></ul>
+        </div>
+
+        <!-- AI 子分类页面 -->
+        <div class="sitemap-section">
+            <h2><i class="fas fa-robot"></i> AI 子分类页面</h2>
+            <ul class="sitemap-list" id="sitemap-ai-categories"></ul>
+        </div>
+
+        <!-- 工具详情页 -->
+        <div class="sitemap-section">
+            <h2><i class="fas fa-toolbox"></i> 工具详情页（部分示例）</h2>
+            <ul class="sitemap-list" id="sitemap-tools"></ul>
+            <p class="text-muted small mt-3">
+                <i class="fas fa-info-circle"></i> 共 <span id="tool-count">0</span> 个工具，每个工具均有独立详情页
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 yingjideng.dpdns.org | <a href="https://yingjideng.dpdns.org/sitemap.xml" style="color:#999;">XML 版本</a></p>
+    </footer>
+
+    <script>
+        // 加载数据并渲染站点地图
+        (async function() {
+            try {
+                const response = await fetch('data/tools.json?v=' + Date.now());
+                const data = await response.json();
+                
+                // 渲染分类
+                const categoriesList = document.getElementById('sitemap-categories');
+                data.categories.forEach(cat => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="category.html?category=${cat.id}">${cat.name} <span class="tool-id">(${cat.tools.length}个工具)</span></a>`;
+                    categoriesList.appendChild(li);
+                });
+                document.getElementById('stat-categories').textContent = data.categories.length;
+                
+                // 渲染 AI 子分类
+                const aiCategories = data.categories.filter(c => c.id.startsWith('ai-'));
+                const aiList = document.getElementById('sitemap-ai-categories');
+                aiCategories.forEach(cat => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="category.html?category=${cat.id}">${cat.name} <span class="tool-id">(${cat.tools.length}个工具)</span></a>`;
+                    aiList.appendChild(li);
+                });
+                
+                // 渲染工具（前 50 个示例）
+                const allTools = data.categories.flatMap(cat => 
+                    cat.tools.map(tool => ({ ...tool, category: cat.id, category_name: cat.name }))
+                );
+                document.getElementById('stat-tools').textContent = allTools.length;
+                document.getElementById('tool-count').textContent = allTools.length;
+                
+                const toolsList = document.getElementById('sitemap-tools');
+                allTools.slice(0, 50).forEach(tool => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="tool.html?id=${tool.id}">${tool.name} <span class="tool-id">/${tool.id}</span></a>`;
+                    toolsList.appendChild(li);
+                });
+                
+                if (allTools.length > 50) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="index.html" style="color:#999;">... 还有 ${allTools.length - 50} 个工具（查看全部）</a>`;
+                    toolsList.appendChild(li);
+                }
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                document.body.innerHTML = '<div class="text-center py-5"><h4>加载失败</h4><p class="text-muted">请刷新页面重试</p></div>';
+            }
+        })();
+    </script>
+</body>
+</html>

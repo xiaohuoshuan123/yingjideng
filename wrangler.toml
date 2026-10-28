@@ -1,0 +1,9 @@
+name = "yingjideng"
+compatibility_date = "2026-06-02"
+pages_build_output_dir = "."
+
+# D1 数据库绑定
+[[d1_databases]]
+binding = "yingjideng_db"
+database_name = "yingjideng-db"
+database_id = "8726fac0-90b1-4399-92ee-c6d787c663d7"

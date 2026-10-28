@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>工具详情 — yingjideng AI 增强工具导航站 | 300+ 免费工具一站式查找</title>
+    <meta name="description" id="tool-meta-desc" content="在 yingjideng 找到最适合你的 AI 增强效率工具。传统工具 × AI 增强，一站找到最适合的方案。收录 300+ 免费工具，涵盖开发、设计、办公、学习等 20+ 分类。">
+    
+    <!-- Open Graph / Twitter Card（动态更新，JS 会根据工具 ID 更新） -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" id="tool-og-url" content="https://yingjideng.dpdns.org/tool.html">
+    <meta property="og:title" id="tool-og-title" content="工具详情 — yingjideng">
+    <meta property="og:description" id="tool-og-description" content="在 yingjideng 找到最适合你的 AI 增强效率工具。">
+    <meta property="og:image" content="https://yingjideng.dpdns.org/og-image.svg">
+    <meta property="og:site_name" content="yingjideng">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" id="tool-tw-url" content="https://yingjideng.dpdns.org/tool.html">
+    <meta name="twitter:title" id="tool-tw-title" content="工具详情 — yingjideng">
+    <meta name="twitter:description" id="tool-tw-description" content="在 yingjideng 找到最适合你的 AI 增强效率工具。">
+    <meta name="twitter:image" content="https://yingjideng.dpdns.org/og-image.svg">
+    
+    <!-- JSON-LD Structured Data（JS 会根据工具 ID 动态替换） -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "yingjideng",
+        "url": "https://yingjideng.dpdns.org/",
+        "description": "AI 增强工具导航站，收录 300+ 效率工具",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yingjideng.dpdns.org/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=9">
+    <link rel="stylesheet" href="css/ai-badges.css?v=9">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f3460">
+    
+    <!-- Canonical URL (动态更新) -->
+    <link rel="canonical" id="canonical-url" href="https://yingjideng.dpdns.org/tool.html">
+    
+    <!-- 资源预连接 -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Cloudflare Web Analytics -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0f77e2b4ac524c57b2fa258c43968d10"}'></script>
+    <!-- 百度统计 -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?YOUR_BAIDU_TOKEN";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+</head>
+<body>
+    <h1 style="display:none;">yingjideng — 工具详情</h1>
+    <!-- 顶部导航 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-robot"></i> yingjideng</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">分类</a>
+                        <div class="dropdown-menu" id="category-menu"></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="favorites.html"><i class="fas fa-heart"></i> 收藏</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" id="search-form">
+                    <input class="form-control mr-sm-2" type="search" placeholder="搜索工具..." id="search-input">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 工具详情 -->
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <div id="tool-detail-content">
+                            <div class="text-center py-5">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="sr-only">加载中...</span>
+                                </div>
+                                <p class="mt-3 text-muted">正在加载工具详情...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <a href="index.html" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> 返回首页</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer mt-5">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h5><i class="fas fa-robot"></i> yingjideng</h5>
+                    <p class="text-muted small">传统工具 × AI 增强，一站找到最适合你的效率方案</p>
+                </div>
+                <div class="footer-links">
+                    <h6>快速链接</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="category.html">分类</a></li>
+                        <li><a href="favorites.html">我的收藏</a></li>
+                        <li><a href="about.html">关于本站</a></li>
+                        <li><a href="sitemap.html">站点地图</a></li>
+                        <li><a href="feedback.html">提交反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2026 yingjideng.dpdns.org | Powered by Cloudflare Workers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js?v=9"></script>
+    <script src="js/feedback.js?v=9"></script>
+    <script src="js/analytics.js?v=9"></script>
+    <script>
+    // 工具详情页逻辑
+    document.addEventListener('DOMContentLoaded', async function() {
+        const params = new URLSearchParams(window.location.search);
+        const toolId = params.get('id');
+        
+        if (!toolId) {
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        try {
+            const response = await fetch('data/tools.json?v=' + Date.now());
+            const data = await response.json();
+            
+            const allTools = data.categories.flatMap(cat => 
+                cat.tools.map(tool => ({ ...tool, category: cat.id, category_name: cat.name }))
+            );
+            
+            const tool = allTools.find(t => t.id === toolId);
+            if (!tool) {
+                document.getElementById('tool-detail-content').innerHTML = `
+                    <div class="text-center py-5">
+                        <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+                        <h4>工具未找到</h4>
+                        <p class="text-muted">该工具不存在或已被移除</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // 渲染工具详情
+            const aiLabels = { 'ai-native': 'AI 原生', 'ai-enhanced': 'AI 增强', 'traditional': '传统' };
+            const priceLabels = { 'yes': '免费', 'freemium': '免费增值', 'paid': '付费' };
+            
+            let html = `
+                <div class="text-center mb-4">
+                    <div style="font-size: 4rem;">${tool.icon || '🔧'}</div>
+                    <h2 class="mt-3">${tool.name}</h2>
+                    <p class="text-muted">${tool.category_name}</p>
+                    <div class="mt-2">
+                        <span class="badge badge-${aiLabels[tool.ai_type] === 'AI 原生' ? 'danger' : aiLabels[tool.ai_type] === 'AI 增强' ? 'primary' : 'secondary'}">
+                            ${aiLabels[tool.ai_type]}
+                        </span>
+                        <span class="badge badge-${priceLabels[tool.is_free] === '免费' ? 'success' : priceLabels[tool.is_free] === '免费增值' ? 'info' : 'warning'}">
+                            ${priceLabels[tool.is_free]}
+                        </span>
+                    </div>
+                </div>
+                
+                <h5>描述</h5>
+                <p>${tool.description}</p>
+                
+                <div class="mt-4">
+                    <a href="${tool.url}" target="_blank" class="btn btn-success btn-lg">
+                        <i class="fas fa-external-link-alt"></i> 访问 ${tool.name}
+                    </a>
+                </div>
+            `;
+            
+            if (tool.ai_alternative) {
+                html += `
+                    <div class="mt-4 p-3 bg-light rounded">
+                        <h6><i class="fas fa-lightbulb text-warning"></i> AI 替代推荐</h6>
+                        <p><a href="${tool.ai_alternative.url}" target="_blank">${tool.ai_alternative.name}</a></p>
+                    </div>
+                `;
+            }
+            
+            if (tool.automation) {
+                            html += `
+                                <div class="mt-4 p-3 bg-light rounded">
+                                    <h6><i class="fas fa-bolt text-info"></i> 自动化方案</h6>
+                                    <p><a href="${tool.automation.url}" target="_blank">${tool.automation.name}</a></p>
+                                </div>
+                            `;
+                        }
+
+                        // ===== 评价区域 =====
+                        html += `
+                            <div class="mt-5" id="reviews-section">
+                                <hr class="my-4">
+                                <h5><i class="fas fa-star text-warning"></i> 用户评价</h5>
+                                <div id="reviews-stats" class="mb-3"></div>
+                                <div id="reviews-list" class="mb-3"></div>
+                                <div id="review-form-container" class="mb-3"></div>
+                            </div>
+                        `;
+
+                        document.getElementById('tool-detail-content').innerHTML = html;
+
+                        // 加载评价数据
+                        loadReviews(tool.id, tool.name);
+            
+            // ========================================
+            // 动态更新 SEO 元标签
+            // ========================================
+            const toolUrl = `https://yingjideng.dpdns.org/tool.html?id=${tool.id}`;
+            
+            // Canonical URL
+            document.getElementById('canonical-url').setAttribute('href', toolUrl);
+            
+            // Open Graph
+            document.getElementById('tool-og-url').setAttribute('content', toolUrl);
+            document.getElementById('tool-og-title').setAttribute('content', `${tool.name} — yingjideng`);
+            document.getElementById('tool-og-description').setAttribute('content', tool.description);
+            
+            // Twitter Card
+            document.getElementById('tool-tw-url').setAttribute('content', toolUrl);
+            document.getElementById('tool-tw-title').setAttribute('content', `${tool.name} — yingjideng`);
+            document.getElementById('tool-tw-description').setAttribute('content', tool.description);
+            
+            // 更新页面标题
+            document.title = `${tool.name} — ${tool.description.substring(0, 40)}... | yingjideng`;
+            
+            // 动态更新 meta description
+            document.getElementById('tool-meta-desc').setAttribute('content', tool.description);
+            
+            // 动态生成 Schema.org 结构化数据（增强版）
+            const schemaData = {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": tool.name,
+                "applicationCategory": tool.category_name || "WebApplication",
+                "operatingSystem": "Web",
+                "url": tool.url,
+                "description": tool.description,
+                "softwareVersion": "Web",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "0",
+                    "ratingCount": "0",
+                    "reviewCount": "0"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": tool.is_free === 'yes' ? '0' : '1',
+                    "priceCurrency": "CNY",
+                    "availability": tool.is_free === 'yes' ? 'https://schema.org/Free' : 'https://schema.org/InStock'
+                },
+                "softwareRequirements": "Modern web browser with JavaScript enabled",
+                "applicationSuite": "yingjideng AI 工具导航站",
+                "inLanguage": "zh-CN",
+                "author": {
+                    "@type": "Organization",
+                    "name": "yingjideng",
+                    "url": "https://yingjideng.dpdns.org/"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "yingjideng",
+                    "url": "https://yingjideng.dpdns.org/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://yingjideng.dpdns.org/og-image.svg"
+                    }
+                }
+            };
+            
+            // 移除旧的 Schema 脚本，添加新的
+            const oldSchema = document.querySelector('script[type="application/ld+json"]');
+            if (oldSchema) oldSchema.remove();
+            
+            const schemaScript = document.createElement('script');
+            schemaScript.type = 'application/ld+json';
+            schemaScript.text = JSON.stringify(schemaData);
+            document.head.appendChild(schemaScript);
+            
+        } catch (error) {
+                    console.error('加载失败:', error);
+                    document.getElementById('tool-detail-content').innerHTML = `
+                        <div class="text-center py-5">
+                            <i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
+                            <h4>加载失败</h4>
+                            <p class="text-muted">请刷新页面重试</p>
+                        </div>
+                    `;
+                }
+            });
+
+        // ===== 评价功能函数 =====
+        async function loadReviews(toolId, toolName) {
+            try {
+                const response = await fetch(`/api/reviews?tool_id=${encodeURIComponent(toolId)}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    console.error('Reviews load error:', data.error);
+                    return;
+                }
+
+                // 渲染统计
+                renderReviewsStats(data.stats);
+
+                // 渲染评价列表
+                renderReviewsList(data.data);
+
+                // 渲染提交表单
+                renderReviewForm(toolId, toolName);
+            } catch (error) {
+                console.error('Failed to load reviews:', error);
+            }
+        }
+
+        function renderReviewsStats(stats) {
+            const container = document.getElementById('reviews-stats');
+            if (!container) return;
+
+            const avg = stats.average || 0;
+            const total = stats.total || 0;
+            const dist = stats.distribution || {5:0,4:0,3:0,2:0,1:0};
+
+            container.innerHTML = `
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <div style="font-size: 3rem; font-weight: bold; color: #ffc107;">${avg.toFixed(1)}</div>
+                        <div class="text-muted small">平均分</div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="text-muted small mb-2">共 ${total} 条评价</div>
+                        <div class="row">
+                            ${[5,4,3,2,1].map(star => `
+                                <div class="col-12 col-sm-2 mb-1">
+                                    <div class="d-flex align-items-center">
+                                        <span class="text-warning small">${'★'.repeat(star)}${'☆'.repeat(5-star)}</span>
+                                        <div class="progress flex-grow-1 mx-2" style="height: 6px;">
+                                            <div class="progress-bar bg-warning" style="width: ${total > 0 ? (dist[star] / total * 100) : 0}%"></div>
+                                        </div>
+                                        <span class="text-muted small">${dist[star] || 0}</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderReviewsList(reviews) {
+            const container = document.getElementById('reviews-list');
+            if (!container) return;
+
+            if (reviews.length === 0) {
+                container.innerHTML = '<p class="text-muted text-center py-3">暂无评价，快来写第一条评价吧！</p>';
+                return;
+            }
+
+            container.innerHTML = reviews.map(r => `
+                <div class="border-bottom pb-3 mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="font-weight-bold">${r.author || '匿名用户'}</span>
+                        <span class="text-warning">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span>
+                    </div>
+                    <div class="text-muted small mb-2">${new Date(r.created_at).toLocaleString('zh-CN')}</div>
+                    <p class="mb-0">${r.comment}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderReviewForm(toolId, toolName) {
+            const container = document.getElementById('review-form-container');
+            if (!container) return;
+
+            container.innerHTML = `
+                <div class="card">
+                    <div class="card-header bg-light">
+                        <h6 class="mb-0"><i class="fas fa-edit"></i> 写评价</h6>
+                    </div>
+                    <div class="card-body">
+                        <form id="review-form">
+                            <input type="hidden" name="tool_id" value="${toolId}">
+                            <input type="hidden" name="tool_name" value="${toolName}">
+                    
+                            <div class="form-group">
+                                <label>您的评分</label>
+                                <div class="rating-input">
+                                    ${[5,4,3,2,1].map(star => `
+                                        <input type="radio" name="rating" id="star-${star}" value="${star}" ${star===5?'checked':''}>
+                                        <label for="star-${star}" class="star-label" title="${star}分">${'★'}</label>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="review-comment">评价内容</label>
+                                <textarea class="form-control" name="comment" id="review-comment" rows="3" placeholder="分享您的使用体验、优缺点、建议等（至少 5 字符）" required></textarea>
+                                <small class="form-text text-muted">最少 5 字符，最多 1000 字符</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="review-author">昵称（可选）</label>
+                                <input type="text" class="form-control" name="author" id="review-author" placeholder="匿名用户" maxlength="30">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="review-submit-btn">
+                                <span class="btn-text"><i class="fas fa-paper-plane"></i> 提交评价</span>
+                                <span class="btn-loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> 提交中...</span>
+                            </button>
+                        </form>
+                        <div id="review-success" class="alert alert-success mt-3" style="display:none;"></div>
+                        <div id="review-error" class="alert alert-danger mt-3" style="display:none;"></div>
+                    </div>
+                </div>
+            `;
+
+            // 绑定表单提交
+            document.getElementById('review-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const form = this;
+                const submitBtn = document.getElementById('review-submit-btn');
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnLoading = submitBtn.querySelector('.btn-loading');
+                const successDiv = document.getElementById('review-success');
+                const errorDiv = document.getElementById('review-error');
+
+                const formData = new FormData(form);
+                const data = {
+                    tool_id: formData.get('tool_id'),
+                    tool_name: formData.get('tool_name'),
+                    rating: parseInt(formData.get('rating')),
+                    comment: formData.get('comment'),
+                    author: formData.get('author') || '匿名用户'
+                };
+
+                // 验证
+                if (!data.comment || data.comment.trim().length < 5) {
+                    showError(errorDiv, '评价内容至少需要 5 个字符');
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline-block';
+                hideError(errorDiv);
+                hideError(successDiv);
+
+                try {
+                    const response = await fetch('/api/reviews', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    const result = await response.json();
+
+                    if (result.success) {
+                        form.style.display = 'none';
+                        successDiv.textContent = result.message;
+                        successDiv.style.display = 'block';
+                        // 刷新评价列表
+                        loadReviews(data.tool_id, data.tool_name);
+                    } else {
+                        throw new Error(result.error || '提交失败');
+                    }
+                } catch (error) {
+                    showError(errorDiv, error.message);
+                } finally {
+                    submitBtn.disabled = false;
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                }
+            });
+        }
+
+        function showError(div, msg) {
+            div.textContent = msg;
+            div.style.display = 'block';
+        }
+        function hideError(div) {
+            div.style.display = 'none';
+        }
+        </script>
+</body>
+</html>

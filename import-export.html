@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量导入/导出 — yingjideng</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { background: #f8f9fa; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 0; margin-bottom: 30px; }
+        .header h1 { margin: 0; font-size: 28px; }
+        .header p { margin: 10px 0 0; opacity: 0.9; }
+        .panel { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .panel h4 { margin-bottom: 20px; color: #333; }
+        .btn-action { margin-right: 8px; }
+        .nav-back { color: white; text-decoration: none; opacity: 0.8; }
+        .nav-back:hover { opacity: 1; }
+        .result-box { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; margin-top: 16px; max-height: 400px; overflow-y: auto; }
+        .result-box .item { padding: 8px 0; border-bottom: 1px solid #e9ecef; font-size: 14px; }
+        .result-box .item:last-child { border-bottom: none; }
+        .result-box .error { color: #dc3545; }
+        .result-box .success { color: #28a745; }
+        .result-box .warning { color: #ffc107; }
+        .result-box .info { color: #17a2b8; }
+        .stat-badge { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 12px; margin-right: 6px; }
+        .stat-badge.total { background: #667eea; color: white; }
+        .stat-badge.valid { background: #28a745; color: white; }
+        .stat-badge.invalid { background: #dc3545; color: white; }
+        .stat-badge.duplicate { background: #ffc107; color: #333; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 22px; }
+            .btn-action { margin-bottom: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> 返回首页</a>
+        <h1 style="margin-top: 16px;"><i class="fas fa-exchange-alt"></i> 批量导入/导出</h1>
+        <p>管理工具数据 · 导入 CSV/JSON · 导出备份</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- 导出区域 -->
+    <div class="panel">
+        <h4><i class="fas fa-download"></i> 导出数据</h4>
+        <p class="text-muted">将当前工具数据导出为 CSV 或 JSON 格式，用于备份或迁移。</p>
+        <div class="mb-3">
+            <button class="btn btn-outline-primary btn-action" onclick="exportTools('json')">
+                <i class="fas fa-file-code"></i> 导出为 JSON
+            </button>
+            <button class="btn btn-outline-success btn-action" onclick="exportTools('csv')">
+                <i class="fas fa-file-csv"></i> 导出为 CSV
+            </button>
+        </div>
+        <div class="small text-muted">
+            <i class="fas fa-info-circle"></i> JSON 格式保留所有字段（含嵌套对象），CSV 格式仅导出平铺字段
+        </div>
+    </div>
+
+    <!-- 导入区域 -->
+    <div class="panel">
+        <h4><i class="fas fa-upload"></i> 导入工具数据</h4>
+        <p class="text-muted">上传 CSV 或 JSON 文件，系统将自动解析、校验并生成更新后的数据文件。</p>
+        
+        <div class="form-group">
+            <label>选择文件</label>
+            <input type="file" id="importFile" accept=".json,.csv" class="form-control">
+            <small class="text-muted">支持 .json 或 .csv 格式</small>
+        </div>
+
+        <div class="form-group">
+            <label>导入模式</label>
+            <select id="importMode" class="form-control">
+                <option value="merge">合并模式 — 新增工具，保留已有工具</option>
+                <option value="replace">替换模式 — 完全覆盖现有数据</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary btn-action" onclick="importTools()">
+            <i class="fas fa-play"></i> 开始导入
+        </button>
+
+        <!-- 导入结果 -->
+        <div id="importResult" style="display:none;">
+            <h5 class="mt-4">导入结果</h5>
+            <div class="result-box" id="resultBox"></div>
+            
+            <div class="mt-3">
+                <button class="btn btn-success btn-action" onclick="downloadUpdatedData()">
+                    <i class="fas fa-download"></i> 下载更新后的数据
+                </button>
+                <span class="text-muted small">下载后手动上传到服务器 data/tools.json</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 数据预览 -->
+    <div class="panel">
+        <h4><i class="fas fa-table"></i> 当前数据概览</h4>
+        <div id="dataOverview" class="text-muted">加载中...</div>
+    </div>
+
+</div>
+
+<script>
+// ============================================
+// 工具数据（从 data/tools.json 加载）
+// ============================================
+let toolsData = null;
+let importResultData = null;
+
+// 加载工具数据
+async function loadToolsData() {
+    try {
+        const res = await fetch('data/tools.json');
+        toolsData = await res.json();
+        updateOverview();
+    } catch (e) {
+        document.getElementById('dataOverview').innerHTML = 
+            `<span class="text-danger">加载失败: ${e.message}</span>`;
+    }
+}
+
+function updateOverview() {
+    if (!toolsData || !toolsData.categories) return;
+    
+    let total = 0;
+    const cats = toolsData.categories.map(c => ({
+        name: c.name,
+        count: c.tools.length
+    }));
+    total = cats.reduce((s, c) => s + c.count, 0);
+    
+    const html = cats.map(c => 
+        `<span class="stat-badge total">${c.name}</span> ${c.count} 个`
+    ).join(' ') + `<br><br><strong>总计: ${total} 个工具</strong>`;
+    
+    document.getElementById('dataOverview').innerHTML = html;
+}
+
+// ============================================
+// 导出功能
+// ============================================
+function exportTools(format) {
+    if (!toolsData) {
+        alert('数据未加载，请稍后再试');
+        return;
+    }
+    
+    let content, filename, mimeType;
+    
+    if (format === 'json') {
+        content = JSON.stringify(toolsData, null, 2);
+        filename = 'tools-export.json';
+        mimeType = 'application/json';
+    } else {
+        content = exportToCSV(toolsData);
+        filename = 'tools-export.csv';
+        mimeType = 'text/csv';
+    }
+    
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function exportToCSV(data) {
+    const rows = [];
+    
+    // 表头
+    const headers = ['id', 'name', 'url', 'description', 'category', 'ai_type', 'is_free', 'icon'];
+    rows.push(headers.join(','));
+    
+    // 数据行
+    for (const cat of data.categories) {
+        for (const tool of cat.tools) {
+            const row = [
+                escapeCSV(tool.id || ''),
+                escapeCSV(tool.name || ''),
+                escapeCSV(tool.url || ''),
+                escapeCSV(tool.description || ''),
+                escapeCSV(cat.name || ''),
+                escapeCSV(tool.ai_type || ''),
+                escapeCSV(tool.is_free || ''),
+                escapeCSV(tool.icon || '')
+            ];
+            rows.push(row.join(','));
+        }
+    }
+    
+    return rows.join('\n');
+}
+
+function escapeCSV(value) {
+    if (value === null || value === undefined) return '';
+    const str = String(value);
+    if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+        return '"' + str.replace(/"/g, '""') + '"';
+    }
+    return str;
+}
+
+// ============================================
+// 导入功能
+// ============================================
+async function importTools() {
+    const fileInput = document.getElementById('importFile');
+    const file = fileInput.files[0];
+    const mode = document.getElementById('importMode').value;
+    
+    if (!file) {
+        alert('请先选择要导入的文件');
+        return;
+    }
+    
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (!['json', 'csv'].includes(ext)) {
+        alert('仅支持 .json 或 .csv 文件');
+        return;
+    }
+    
+    try {
+        const content = await readFile(file);
+        let importedTools = [];
+        
+        if (ext === 'json') {
+            importedTools = parseJSONImport(content);
+        } else {
+            importedTools = parseCSVImport(content);
+        }
+        
+        // 执行合并/替换
+        const result = processImport(importedTools, mode);
+        
+        // 显示结果
+        showImportResult(result);
+        importResultData = result.updatedData;
+        
+    } catch (e) {
+        alert('导入失败: ' + e.message);
+    }
+}
+
+function readFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result);
+        reader.onerror = () => reject(new Error('读取文件失败'));
+        reader.readAsText(file);
+    });
+}
+
+function parseJSONImport(content) {
+    const data = JSON.parse(content);
+    
+    // 支持两种格式：直接工具数组 或 categories 结构
+    if (Array.isArray(data)) {
+        return data;
+    } else if (data.categories && Array.isArray(data.categories)) {
+        const tools = [];
+        for (const cat of data.categories) {
+            for (const tool of cat.tools || []) {
+                tools.push({ ...tool, _categoryName: cat.name });
+            }
+        }
+        return tools;
+    }
+    
+    throw new Error('无效的 JSON 格式');
+}
+
+function parseCSVImport(content) {
+    const lines = content.trim().split('\n');
+    if (lines.length < 2) throw new Error('CSV 文件为空或格式错误');
+    
+    const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
+    const tools = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+        const values = parseCSVLine(lines[i]);
+        const tool = {};
+        
+        headers.forEach((h, idx) => {
+            tool[h] = values[idx] ? values[idx].replace(/"/g, '') : '';
+        });
+        
+        // 从 category 字段还原分类
+        if (tool.category) {
+            tool._categoryName = tool.category;
+        }
+        
+        tools.push(tool);
+    }
+    
+    return tools;
+}
+
+function parseCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        if (char === '"') {
+            inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+            result.push(current);
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+    result.push(current);
+    
+    return result;
+}
+
+function processImport(importedTools, mode) {
+    if (!toolsData) {
+        throw new Error('当前数据未加载');
+    }
+    
+    const errors = [];
+    const warnings = [];
+    const success = [];
+    const duplicates = [];
+    
+    // 建立现有工具索引
+    const existingIds = new Set();
+    const categoryMap = {};
+    
+    for (const cat of toolsData.categories) {
+        categoryMap[cat.name] = cat.id;
+        for (const tool of cat.tools) {
+            existingIds.add(tool.id);
+        }
+    }
+    
+    // 处理导入的工具
+    const newToolsByCategory = {};
+    
+    for (const tool of importedTools) {
+        // 校验必填字段
+        const missing = [];
+        if (!tool.id) missing.push('id');
+        if (!tool.name) missing.push('name');
+        if (!tool.url) missing.push('url');
+        
+        if (missing.length > 0) {
+            errors.push(`缺少必填字段 [${missing.join(', ')}]: ${tool.name || '(无名称)'}`);
+            continue;
+        }
+        
+        // 检查重复
+        if (existingIds.has(tool.id)) {
+            duplicates.push(`ID 重复: ${tool.id} (${tool.name})`);
+            continue;
+        }
+        
+        // 确定分类
+        let categoryName = tool._categoryName || tool.category || '其他';
+        let categoryId = categoryMap[categoryName];
+        
+        if (!categoryId) {
+            warnings.push(`新分类: ${categoryName}，将自动创建`);
+            categoryId = categoryName.toLowerCase().replace(/\s+/g, '-');
+        }
+        
+        if (!newToolsByCategory[categoryName]) {
+            newToolsByCategory[categoryName] = { id: categoryId, tools: [] };
+        }
+        
+        // 清理内部字段
+        const cleanTool = { ...tool };
+        delete cleanTool._categoryName;
+        delete cleanTool.category;
+        
+        newToolsByCategory[categoryName].tools.push(cleanTool);
+        success.push(`✓ ${tool.name} (${tool.id})`);
+    }
+    
+    // 构建更新后的数据
+    let updatedData;
+    
+    if (mode === 'replace') {
+        // 替换模式：完全用新数据重建
+        const newCategories = [];
+        const categoryToolMap = {};
+        
+        // 从成功导入的工具构建分类
+        for (const [name, info] of Object.entries(newToolsByCategory)) {
+            if (!categoryToolMap[name]) categoryToolMap[name] = [];
+            categoryToolMap[name].push(...info.tools);
+        }
+        
+        for (const [name, tools] of Object.entries(categoryToolMap)) {
+            newCategories.push({
+                id: tools[0]?.id?.split('-')[0] || name.toLowerCase(),
+                name: name,
+                tools: tools
+            });
+        }
+        
+        updatedData = { categories: newCategories };
+    } else {
+        // 合并模式：添加到现有数据
+        updatedData = JSON.parse(JSON.stringify(toolsData));
+        
+        for (const [name, info] of Object.entries(newToolsByCategory)) {
+            const cat = updatedData.categories.find(c => c.name === name);
+            if (cat) {
+                cat.tools.push(...info.tools);
+            } else {
+                updatedData.categories.push({
+                    id: info.id,
+                    name: name,
+                    tools: info.tools
+                });
+            }
+        }
+    }
+    
+    return {
+        errors,
+        warnings,
+        success,
+        duplicates,
+        updatedData,
+        mode
+    };
+}
+
+function showImportResult(result) {
+    const box = document.getElementById('resultBox');
+    const lines = [];
+    
+    lines.push(`<div class="item"><strong>导入模式:</strong> ${result.mode === 'merge' ? '合并' : '替换'}</div>`);
+    lines.push(`<div class="item"><span class="stat-badge success">${result.success.length}</span> 成功导入</div>`);
+    
+    if (result.duplicates.length > 0) {
+        lines.push(`<div class="item"><span class="stat-badge duplicate">${result.duplicates.length}</span> 重复跳过</div>`);
+    }
+    
+    if (result.warnings.length > 0) {
+        lines.push(`<div class="item"><span class="stat-badge warning">${result.warnings.length}</span> 警告</div>`);
+    }
+    
+    if (result.errors.length > 0) {
+        lines.push(`<div class="item"><span class="stat-badge invalid">${result.errors.length}</span> 错误</div>`);
+    }
+    
+    // 详细列表
+    if (result.success.length > 0) {
+        lines.push('<div class="item info"><strong>成功导入:</strong></div>');
+        result.success.slice(0, 20).forEach(s => lines.push(`<div class="item success">  ${s}</div>`));
+        if (result.success.length > 20) {
+            lines.push(`<div class="item text-muted">  ... 还有 ${result.success.length - 20} 个</div>`);
+        }
+    }
+    
+    if (result.duplicates.length > 0) {
+        lines.push('<div class="item"><strong>重复跳过:</strong></div>');
+        result.duplicates.forEach(d => lines.push(`<div class="item warning">  ${d}</div>`));
+    }
+    
+    if (result.warnings.length > 0) {
+        lines.push('<div class="item"><strong>警告:</strong></div>');
+        result.warnings.forEach(w => lines.push(`<div class="item warning">  ${w}</div>`));
+    }
+    
+    if (result.errors.length > 0) {
+        lines.push('<div class="item"><strong>错误:</strong></div>');
+        result.errors.forEach(e => lines.push(`<div class="item error">  ${e}</div>`));
+    }
+    
+    box.innerHTML = lines.join('');
+    document.getElementById('importResult').style.display = 'block';
+}
+
+function downloadUpdatedData() {
+    if (!importResultData) {
+        alert('没有可下载的数据');
+        return;
+    }
+    
+    const content = JSON.stringify(importResultData, null, 2);
+    const blob = new Blob([content], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'tools.json';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+// 初始化
+loadToolsData();
+</script>
+
+</body>
+</html>

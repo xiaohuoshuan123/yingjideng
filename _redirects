@@ -1,0 +1,15 @@
+/usr/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+# Cloudflare Pages 重定向/重写规则
+# 放在项目根目录，自动生效
+
+# index.html 重定向到根目录（避免重复内容）
+/index.html / 301
+
+# 分类页重写（地址栏不变）
+/category/* /category.html?category=$s 200
+
+# 工具详情页重写（地址栏不变）
+/tool/* /tool.html?id=$s 200
+
+# 收藏页重写（地址栏不变）
+/favorites /favorites.html 200

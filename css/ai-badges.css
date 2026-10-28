@@ -1,0 +1,78 @@
+/* ========================================
+   AI 标签徽章样式
+   ======================================== */
+
+.ai-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
+/* AI 原生 — 红色 */
+.ai-badge.ai-native {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+/* AI 增强 — 琥珀色 */
+.ai-badge.ai-enhanced {
+    background: #ffc107;
+    color: #212529;
+}
+
+/* 传统工具 — 灰色 */
+.ai-badge.traditional {
+    background: #6c757d;
+    color: #ffffff;
+}
+
+/* ========================================
+   徽章在卡片标题行的布局
+   ======================================== */
+
+.tool-title-with-badge {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tool-title-with-badge .ai-badge {
+    margin-left: 0;
+}
+
+/* ========================================
+   模态框内的徽章
+   ======================================== */
+
+.modal-body .ai-badge {
+    margin-left: 0;
+    margin-bottom: 8px;
+}
+
+/* ========================================
+   筛选按钮的徽章颜色对应
+   ======================================== */
+
+.filter-btn[data-filter="ai-native"] {
+    background: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+}
+
+.filter-btn[data-filter="ai-enhanced"] {
+    background: #ffc107;
+    color: #212529;
+    border-color: #ffc107;
+}
+
+.filter-btn[data-filter="traditional"] {
+    background: #6c757d;
+    color: #fff;
+    border-color: #6c757d;
+}

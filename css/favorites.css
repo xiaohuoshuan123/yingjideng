@@ -1,0 +1,109 @@
+/* ========================================
+   收藏功能样式
+   ======================================== */
+
+.page-header {
+    background: linear-gradient(135deg, #e91e63 0%, #ff5722 100%);
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.page-header p {
+    margin: 8px 0 0;
+    opacity: 0.9;
+}
+
+/* 收藏按钮 */
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: #ccc;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.favorite-btn:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+.favorite-btn.is-favorite {
+    color: #e91e63;
+}
+
+.favorite-btn.is-favorite:hover {
+    color: #c2185b;
+}
+
+/* 工具卡片相对定位（为收藏按钮定位） */
+.tool-card {
+    position: relative;
+}
+
+/* 收藏空状态 */
+.no-favorites {
+    padding: 60px 20px;
+}
+
+.no-favorites i {
+    color: #ddd;
+}
+
+/* 收藏提示 Toast */
+.favorite-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.favorite-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.favorite-toast.success {
+    background: #28a745;
+}
+
+.favorite-toast.remove {
+    background: #dc3545;
+}
+
+/* 收藏数量徽章 */
+.favorite-count-badge {
+    background: #e91e63;
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 4px;
+}

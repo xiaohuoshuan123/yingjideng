@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>提交反馈 — yingjideng AI 增强工具导航站 | 300+ 免费工具一站式查找</title>
+  <meta name="description" content="对工具或网站有任何问题？在这里提交反馈，我们会尽快处理并回复您。">
+  
+  <!-- 主题色 -->
+  <meta name="theme-color" content="#6366f1">
+  <meta name="msapplication-navbutton-color" content="#6366f1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#black-translucent">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="提交反馈 — yingjideng AI 增强工具导航站">
+  <meta property="og:description" content="对工具或网站有任何问题？在这里告诉我们，我们会尽快处理并回复您。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yingjideng.dpdns.org/feedback.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/feedback.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-robot"></i> yingjideng
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="category.html">分类</a></li>
+          <li class="nav-item"><a class="nav-link" href="favorites.html">收藏</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">关于</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 反馈表单 -->
+  <main class="feedback-page">
+    <div class="container">
+      <div class="feedback-wrapper">
+        <div class="feedback-header">
+          <h1>提交反馈</h1>
+          <p class="feedback-subtitle">对工具或网站有任何问题？在这里告诉我们，我们会尽快处理并回复您。</p>
+        </div>
+
+        <form id="feedback-form" class="feedback-form">
+          <!-- 反馈类型 -->
+          <div class="form-group">
+            <label for="feedback_type" class="form-label">反馈类型</label>
+            <select id="feedback_type" name="feedback_type" class="form-control" required>
+              <option value="">请选择反馈类型</option>
+              <option value="bug">🐛 工具故障</option>
+              <option value="suggestion">💡 功能建议</option>
+              <option value="content">📝 内容问题</option>
+              <option value="other">🔹 其他问题</option>
+            </select>
+          </div>
+          
+          <!-- 工具选择 -->
+          <div class="form-group">
+            <label for="tool_select" class="form-label">相关工具</label>
+            <select id="tool_select" name="tool_select" class="form-control">
+              <option value="">选择相关工具（可选）</option>
+              <!-- JS 动态加载工具列表 -->
+            </select>
+            <small class="form-text text-muted">如果反馈与特定工具相关，请选择该工具</small>
+            <!-- 隐藏字段存储选中的工具信息 -->
+            <input type="hidden" id="tool_id" value="">
+            <input type="hidden" id="tool_name" value="">
+          </div>
+          
+          <!-- 邮箱 -->
+          <div class="form-group">
+            <label for="email" class="form-label">联系邮箱（可选）</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="您的邮箱地址">
+            <small class="form-text text-muted">留下邮箱以便我们回复您（可选）</small>
+          </div>
+          
+          <!-- 反馈内容 -->
+          <div class="form-group">
+            <label for="content" class="form-label">反馈内容</label>
+            <textarea id="content" name="content" class="form-control" rows="6" placeholder="请详细描述您的问题或建议..." required></textarea>
+            <small class="form-text text-muted">请尽量详细描述问题，方便我们快速定位并解决（至少 10 个字符）</small>
+          </div>
+          
+          <!-- 提交按钮 -->
+          <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+            <span class="btn-text">提交反馈</span>
+            <span class="btn-loading" style="display:none;">
+              <span class="spinner-border spinner-border-sm mr-2"></span>提交中...
+            </span>
+          </button>
+        </form>
+
+        <!-- 成功提示 -->
+        <div id="success-message" class="feedback-success" style="display:none;">
+          <div class="success-icon">✓</div>
+          <h3>反馈已提交</h3>
+          <p>感谢您的反馈！我们会尽快处理并回复您。</p>
+          <div class="mt-4">
+            <a href="index.html" class="btn btn-secondary">返回首页</a>
+            <a href="feedback.html" class="btn btn-outline-primary">再次提交</a>
+          </div>
+        </div>
+        
+        <!-- 错误提示 -->
+        <div id="error-message" class="feedback-error" style="display:none;">
+          <div class="error-icon">✕</div>
+          <h3>提交失败</h3>
+          <p id="error-text">请稍后重试</p>
+          <div class="mt-4">
+            <button class="btn btn-secondary" onclick="location.reload()">重试</button>
+            <a href="index.html" class="btn btn-outline-primary">返回首页</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="site-footer mt-5">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h5><i class="fas fa-robot"></i> yingjideng</h5>
+          <p class="text-muted small">传统工具 × AI 增强，一站找到最适合你的效率方案</p>
+        </div>
+        <div class="footer-links">
+          <h6>快速链接</h6>
+          <ul class="list-unstyled">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="category.html">分类</a></li>
+            <li><a href="favorites.html">我的收藏</a></li>
+            <li><a href="about.html">关于本站</a></li>
+            <li><a href="sitemap.html">站点地图</a></li>
+            <li><a href="feedback.html">提交反馈</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 yingjideng.dpdns.org | Powered by Cloudflare Workers</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/feedback.js?v=10"></script>
+</body>
+</html>

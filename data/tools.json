@@ -1,0 +1,3519 @@
+{
+  "categories": [
+    {
+      "id": "dev",
+      "name": "开发工具",
+      "tools": [
+        {
+          "id": "cursor",
+          "name": "Cursor",
+          "url": "https://cursor.sh",
+          "description": "AI 原生代码编辑器，内置 GPT-4/Claude，支持代码补全、重构、调试",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💻"
+        },
+        {
+          "id": "vscode",
+          "name": "VS Code",
+          "url": "https://code.visualstudio.com",
+          "description": "微软开源代码编辑器，支持海量插件扩展",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Cursor",
+            "url": "https://cursor.sh"
+          },
+          "automation": {
+            "name": "VS Code + Copilot 插件",
+            "url": "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot"
+          },
+          "is_free": "yes",
+          "icon": "🔧"
+        },
+        {
+          "id": "github-copilot",
+          "name": "GitHub Copilot",
+          "url": "https://github.com/features/copilot",
+          "description": "GitHub 官方 AI 编程助手，支持代码补全、生成、解释",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🤖"
+        },
+        {
+          "id": "replit",
+          "name": "Replit",
+          "url": "https://replit.com",
+          "description": "在线 IDE，支持 50+ 语言，内置 AI 助手",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌐"
+        },
+        {
+          "id": "stackblitz",
+          "name": "StackBlitz",
+          "url": "https://stackblitz.com",
+          "description": "在线 Web 开发环境，支持 Node.js 全栈开发",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Replit",
+            "url": "https://replit.com"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⚡"
+        },
+        {
+          "id": "codepen",
+          "name": "CodePen",
+          "url": "https://codepen.io",
+          "description": "前端代码在线编辑和分享社区",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "StackBlitz",
+            "url": "https://stackblitz.com"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨"
+        },
+        {
+          "id": "gitpod",
+          "name": "Gitpod",
+          "url": "https://www.gitpod.io",
+          "description": "基于容器的在线开发环境，支持 VS Code Web 版",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Replit",
+            "url": "https://replit.com"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🐳"
+        },
+        {
+          "id": "windsurf",
+          "name": "Windsurf",
+          "url": "https://windsurf.ai",
+          "description": "AI 原生 IDE，基于 VS Code，支持流式 AI 交互",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌊"
+        },
+        {
+          "id": "codeium",
+          "name": "Codeium",
+          "url": "https://codeium.com",
+          "description": "免费 AI 代码补全工具，支持 70+ 语言和 IDE",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎯"
+        },
+        {
+          "id": "tabnine",
+          "name": "Tabnine",
+          "url": "https://www.tabnine.com",
+          "description": "AI 代码补全工具，支持本地模型部署",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🐕"
+        },
+        {
+          "id": "jetbrains-mps",
+          "name": "JetBrains MPS",
+          "url": "https://www.jetbrains.com/mps/",
+          "description": "语言工作平台，创建自定义编程语言和 DSL",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🔧"
+        },
+        {
+          "id": "atom",
+          "name": "Atom",
+          "url": "https://atom.io",
+          "description": "GitHub 开源文本编辑器，高度可定制（已归档）",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Cursor",
+            "url": "https://cursor.sh"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🔧"
+        },
+        {
+          "id": "sublime-text",
+          "name": "Sublime Text",
+          "url": "https://www.sublimetext.com",
+          "description": "快速、轻量级代码编辑器，支持多行编辑",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Cursor",
+            "url": "https://cursor.sh"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⚡"
+        },
+        {
+          "id": "brackets",
+          "name": "Brackets",
+          "url": "https://brackets.io",
+          "description": "Adobe 开源前端编辑器，专注 Web 开发",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "VS Code",
+            "url": "https://code.visualstudio.com"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎨"
+        },
+        {
+          "id": "netbeans",
+          "name": "NetBeans",
+          "url": "https://netbeans.apache.org",
+          "description": "开源 Java IDE，支持多语言开发",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "IntelliJ IDEA",
+            "url": "https://www.jetbrains.com/idea/"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🔧"
+        },
+        {
+          "id": "xcode",
+          "name": "Xcode",
+          "url": "https://developer.apple.com/xcode/",
+          "description": "Apple 官方 IDE，开发 iOS/macOS 应用",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🍎"
+        },
+        {
+          "id": "intellij",
+          "name": "IntelliJ IDEA",
+          "url": "https://www.jetbrains.com/idea/",
+          "description": "强大的 Java/Kotlin IDE，智能代码辅助",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔧"
+        },
+        {
+          "id": "pycharm",
+          "name": "PyCharm",
+          "url": "https://www.jetbrains.com/pycharm/",
+          "description": "专业 Python IDE，支持 Web 开发和数据科学",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🐍"
+        },
+        {
+          "id": "ruby-mine",
+          "name": "RubyMine",
+          "url": "https://www.jetbrains.com/ruby/",
+          "description": "Ruby/Rails 专用 IDE",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "💎"
+        },
+        {
+          "id": "php-storm",
+          "name": "PhpStorm",
+          "url": "https://www.jetbrains.com/phpstorm/",
+          "description": "专业 PHP IDE，支持 Laravel/Symfony",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🐘"
+        },
+        {
+          "id": "docker",
+          "name": "Docker",
+          "url": "https://www.docker.com",
+          "description": "容器化平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🐳"
+        },
+        {
+          "id": "kubernetes",
+          "name": "Kubernetes",
+          "url": "https://kubernetes.io",
+          "description": "容器编排系统",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "☸️"
+        },
+        {
+          "id": "ansible",
+          "name": "Ansible",
+          "url": "https://www.ansible.com",
+          "description": "自动化配置管理",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "⚙️"
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "name": "设计工具",
+      "tools": [
+        {
+          "id": "figma",
+          "name": "Figma",
+          "url": "https://www.figma.com",
+          "description": "在线 UI/UX 设计协作工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": {
+            "name": "Figma + AI 插件",
+            "url": "https://www.figma.com/community/plugins?query=ai"
+          },
+          "is_free": "freemium",
+          "icon": "🎨"
+        },
+        {
+          "id": "canva",
+          "name": "Canva",
+          "url": "https://www.canva.com",
+          "description": "在线平面设计工具，内置 AI 生成和编辑功能",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🖌️"
+        },
+        {
+          "id": "adobe-firefly",
+          "name": "Adobe Firefly",
+          "url": "https://firefly.adobe.com",
+          "description": "Adobe AI 图像生成工具，集成到 Photoshop",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔥"
+        },
+        {
+          "id": "midjourney",
+          "name": "Midjourney",
+          "url": "https://www.midjourney.com",
+          "description": "AI 图像生成工具，通过 Discord 使用",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎭"
+        },
+        {
+          "id": "dall-e",
+          "name": "DALL-E 3",
+          "url": "https://openai.com/dall-e-3",
+          "description": "OpenAI AI 图像生成，集成到 ChatGPT",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🖼️"
+        },
+        {
+          "id": "stable-diffusion",
+          "name": "Stable Diffusion",
+          "url": "https://stability.ai",
+          "description": "开源 AI 图像生成模型，可本地部署",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": {
+            "name": "Automatic1111 WebUI",
+            "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui"
+          },
+          "is_free": "yes",
+          "icon": "🧬"
+        },
+        {
+          "id": "photoshop",
+          "name": "Photoshop",
+          "url": "https://www.adobe.com/products/photoshop.html",
+          "description": "Adobe 专业图像编辑软件",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Figma",
+            "url": "https://www.figma.com"
+          },
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📷"
+        },
+        {
+          "id": "sketch",
+          "name": "Sketch",
+          "url": "https://www.sketch.com",
+          "description": "Mac 原生 UI 设计工具",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Figma",
+            "url": "https://www.figma.com"
+          },
+          "automation": null,
+          "is_free": "paid",
+          "icon": "✏️"
+        },
+        {
+          "id": "remove-bg",
+          "name": "Remove.bg",
+          "url": "https://www.remove.bg",
+          "description": "AI 一键去除图片背景",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✂️"
+        },
+        {
+          "id": "unsplash",
+          "name": "Unsplash",
+          "url": "https://unsplash.com",
+          "description": "免费高质量图片库",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📸"
+        },
+        {
+          "id": "affinity-designer",
+          "name": "Affinity Designer",
+          "url": "https://affinity.serif.com/designer/",
+          "description": "专业矢量设计软件，一次性付费",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Figma",
+            "url": "https://figma.com"
+          },
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎨"
+        },
+        {
+          "id": "inkline",
+          "name": "Inkscape",
+          "url": "https://inkscape.org",
+          "description": "开源矢量图形编辑器",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Figma",
+            "url": "https://figma.com"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎨"
+        },
+        {
+          "id": "gimp",
+          "name": "GIMP",
+          "url": "https://www.gimp.org",
+          "description": "开源图像编辑器，Photoshop 替代品",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Photoshop",
+            "url": "https://adobe.com/products/photoshop"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🖼️"
+        },
+        {
+          "id": "krita",
+          "name": "Krita",
+          "url": "https://krita.org",
+          "description": "开源数字绘画软件，专注插画和概念艺术",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Procreate",
+            "url": "https://procreate.com"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎨"
+        },
+        {
+          "id": "blender",
+          "name": "Blender",
+          "url": "https://www.blender.org",
+          "description": "开源 3D 创作套件，建模/动画/渲染",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🧊"
+        },
+        {
+          "id": "figma-clone",
+          "name": "Penpot",
+          "url": "https://penpot.app",
+          "description": "开源设计协作工具，Figma 替代品",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎨"
+        },
+        {
+          "id": "canva-education",
+          "name": "Canva for Education",
+          "url": "https://www.canva.com/education/",
+          "description": "教育版 Canva，免费教师和学生使用",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🖌️"
+        },
+        {
+          "id": "adobe-express",
+          "name": "Adobe Express",
+          "url": "https://www.adobe.com/express/",
+          "description": "快速创建社交媒体图形和网页",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✨"
+        },
+        {
+          "id": " piktochart",
+          "name": "Piktochart",
+          "url": "https://piktochart.com",
+          "description": "信息图表和演示文稿制作工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊"
+        },
+        {
+          "id": "prisma",
+          "name": "Prisma AI",
+          "url": "https://www.prisma.ai",
+          "description": "AI 图片增强和编辑",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔮"
+        },
+        {
+          "id": "pexels",
+          "name": "Pexels",
+          "url": "https://www.pexels.com",
+          "description": "免费图片和视频素材",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📷"
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "name": "办公工具",
+      "tools": [
+        {
+          "id": "chatgpt",
+          "name": "ChatGPT",
+          "url": "https://chat.openai.com",
+          "description": "OpenAI 对话 AI，支持写作、分析、编程等",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💬"
+        },
+        {
+          "id": "claude",
+          "name": "Claude",
+          "url": "https://claude.ai",
+          "description": "Anthropic 对话 AI，擅长写作和分析",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📝"
+        },
+        {
+          "id": "notion-ai",
+          "name": "Notion AI",
+          "url": "https://www.notion.so",
+          "description": "AI 笔记和知识库工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📓"
+        },
+        {
+          "id": "obsidian",
+          "name": "Obsidian",
+          "url": "https://obsidian.md",
+          "description": "本地 Markdown 知识库，支持插件扩展",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Notion AI",
+            "url": "https://www.notion.so"
+          },
+          "automation": {
+            "name": "Obsidian + AI 插件",
+            "url": "https://obsidian.md/plugins"
+          },
+          "is_free": "yes",
+          "icon": "🗿"
+        },
+        {
+          "id": "grammarly",
+          "name": "Grammarly",
+          "url": "https://www.grammarly.com",
+          "description": "AI 英文语法检查和写作助手",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✍️"
+        },
+        {
+          "id": "quillbot",
+          "name": "QuillBot",
+          "url": "https://quillbot.com",
+          "description": "AI 文本改写和润色工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔄"
+        },
+        {
+          "id": "deepl",
+          "name": "DeepL",
+          "url": "https://www.deepl.com",
+          "description": "AI 翻译工具，支持 30+ 语言",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌐"
+        },
+        {
+          "id": "trello",
+          "name": "Trello",
+          "url": "https://trello.com",
+          "description": "看板项目管理工具",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Notion AI",
+            "url": "https://www.notion.so"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📋"
+        },
+        {
+          "id": "evernote",
+          "name": "Evernote",
+          "url": "https://evernote.com",
+          "description": "笔记和知识管理工具",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Notion AI",
+            "url": "https://www.notion.so"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📔"
+        },
+        {
+          "id": "feishu",
+          "name": "飞书",
+          "url": "https://www.feishu.cn",
+          "description": "企业协作平台，内置 AI 助手",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🚀"
+        },
+        {
+          "id": "microsoft-365",
+          "name": "Microsoft 365",
+          "url": "https://www.microsoft.com/microsoft-365",
+          "description": "Office 套件云端版，含 Copilot AI",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📝"
+        },
+        {
+          "id": "google-docs",
+          "name": "Google Docs",
+          "url": "https://docs.google.com",
+          "description": "在线文档编辑，支持协作",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📄"
+        },
+        {
+          "id": "google-sheets",
+          "name": "Google Sheets",
+          "url": "https://sheets.google.com",
+          "description": "在线电子表格，支持协作和脚本",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📊"
+        },
+        {
+          "id": "google-slides",
+          "name": "Google Slides",
+          "url": "https://slides.google.com",
+          "description": "在线演示文稿制作",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📽️"
+        },
+        {
+          "id": "onenote",
+          "name": "OneNote",
+          "url": "https://www.onenote.com",
+          "description": "微软数字笔记本，免费使用",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📓"
+        },
+        {
+          "id": "asana",
+          "name": "Asana",
+          "url": "https://asana.com",
+          "description": "团队项目协作平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✅"
+        },
+        {
+          "id": "monday",
+          "name": "Monday.com",
+          "url": "https://monday.com",
+          "description": "可视化工作管理平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📅"
+        },
+        {
+          "id": "clickup",
+          "name": "ClickUp",
+          "url": "https://clickup.com",
+          "description": "全能型项目管理工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✅"
+        },
+        {
+          "id": "smartsheet",
+          "name": "Smartsheet",
+          "url": "https://www.smartsheet.com",
+          "description": "企业项目管理平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📋"
+        },
+        {
+          "id": "slack",
+          "name": "Slack",
+          "url": "https://slack.com",
+          "description": "团队协作沟通工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💬"
+        },
+        {
+          "id": "discord",
+          "name": "Discord",
+          "url": "https://discord.com",
+          "description": "社区和团队语音聊天",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎮"
+        },
+        {
+          "id": "notion",
+          "name": "Notion",
+          "url": "https://www.notion.so",
+          "description": "全能型笔记和协作平台，含 AI 功能",
+          "ai_type": "ai-enhanced",
+          "is_free": "freemium",
+          "icon": "📓"
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "name": "视频工具",
+      "tools": [
+        {
+          "id": "runway",
+          "name": "Runway",
+          "url": "https://runwayml.com",
+          "description": "AI 视频编辑和生成工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎬"
+        },
+        {
+          "id": "pika",
+          "name": "Pika Labs",
+          "url": "https://pika.art",
+          "description": "AI 视频生成工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🐧"
+        },
+        {
+          "id": "sora",
+          "name": "Sora",
+          "url": "https://openai.com/sora",
+          "description": "OpenAI AI 视频生成（暂未公开）",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🌪️"
+        },
+        {
+          "id": "capcut",
+          "name": "CapCut",
+          "url": "https://www.capcut.com",
+          "description": "TikTok 官方视频编辑工具，内置 AI 功能",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "✂️"
+        },
+        {
+          "id": "premiere-pro",
+          "name": "Premiere Pro",
+          "url": "https://www.adobe.com/products/premiere.html",
+          "description": "Adobe 专业视频编辑软件",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Runway",
+            "url": "https://runwayml.com"
+          },
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎥"
+        },
+        {
+          "id": "descript",
+          "name": "Descript",
+          "url": "https://www.descript.com",
+          "description": "AI 视频编辑，通过编辑文本来编辑视频",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📝"
+        },
+        {
+          "id": "heygen",
+          "name": "HeyGen",
+          "url": "https://www.heygen.com",
+          "description": "AI 数字人视频生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎭"
+        },
+        {
+          "id": "elevenlabs",
+          "name": "ElevenLabs",
+          "url": "https://elevenlabs.io",
+          "description": "AI 语音合成工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔊"
+        },
+        {
+          "id": "davinci-resolve",
+          "name": "DaVinci Resolve",
+          "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+          "description": "专业视频剪辑和调色软件，免费版功能强大",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎬"
+        },
+        {
+          "id": "final-cut-pro",
+          "name": "Final Cut Pro",
+          "url": "https://www.apple.com/final-cut-pro/",
+          "description": "Mac 专业视频剪辑软件",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎥"
+        },
+        {
+          "id": "hitfilm",
+          "name": "HitFilm",
+          "url": "https://hitfilm.com",
+          "description": "视频剪辑和 VFX 合成工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎬"
+        },
+        {
+          "id": "open-shot",
+          "name": "OpenShot",
+          "url": "https://www.openshot.org",
+          "description": "开源跨平台视频编辑器",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "DaVinci Resolve",
+            "url": "https://blackmagicdesign.com"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎬"
+        },
+        {
+          "id": "shotcut",
+          "name": "Shotcut",
+          "url": "https://shotcut.org",
+          "description": "开源免费视频编辑器",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "DaVinci Resolve",
+            "url": "https://blackmagicdesign.com"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎬"
+        },
+        {
+          "id": "loom",
+          "name": "Loom",
+          "url": "https://www.loom.com",
+          "description": "屏幕录制和视频消息工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📹"
+        },
+        {
+          "id": "camtasia",
+          "name": "Camtasia",
+          "url": "https://www.techsmith.com/camtasia.html",
+          "description": "屏幕录制和视频编辑软件",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎬"
+        },
+        {
+          "id": "obs",
+          "name": "OBS Studio",
+          "url": "https://obsproject.com",
+          "description": "开源直播和录屏软件",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📹"
+        },
+        {
+          "id": "veed",
+          "name": "VEED.IO",
+          "url": "https://www.veed.io",
+          "description": "在线视频编辑，自动字幕和 AI 功能",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎬"
+        },
+        {
+          "id": "invideo",
+          "name": "InVideo",
+          "url": "https://invideo.io",
+          "description": "AI 视频生成器，文本转视频",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎥"
+        },
+        {
+          "id": "synthesia",
+          "name": "Synthesia",
+          "url": "https://www.synthesia.io",
+          "description": "AI 数字人视频生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🤖"
+        },
+        {
+          "id": "d-id",
+          "name": "D-ID",
+          "url": "https://www.d-id.com",
+          "description": "AI 头像视频生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎭"
+        },
+        {
+          "id": "pictory",
+          "name": "Pictory",
+          "url": "https://pictory.ai",
+          "description": "AI 视频自动生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎥"
+        }
+      ]
+    },
+    {
+      "id": "learn",
+      "name": "学习工具",
+      "tools": [
+        {
+          "id": "coursera",
+          "name": "Coursera",
+          "url": "https://www.coursera.org",
+          "description": "在线课程平台，与大学合作",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "ChatGPT",
+            "url": "https://chat.openai.com"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎓"
+        },
+        {
+          "id": "khan-academy",
+          "name": "Khan Academy",
+          "url": "https://www.khanacademy.org",
+          "description": "免费在线教育平台",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📚"
+        },
+        {
+          "id": "brilliant",
+          "name": "Brilliant",
+          "url": "https://brilliant.org",
+          "description": "交互式 STEM 学习平台",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💡"
+        },
+        {
+          "id": "duolingo",
+          "name": "Duolingo",
+          "url": "https://www.duolingo.com",
+          "description": "AI 语言学习应用",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🦉"
+        },
+        {
+          "id": "anki",
+          "name": "Anki",
+          "url": "https://ankisrs.net",
+          "description": "间隔重复记忆卡片工具",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🃏"
+        },
+        {
+          "id": "z-library",
+          "name": "Z-Library",
+          "url": "https://z-lib.gs",
+          "description": "电子书下载平台",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📖"
+        },
+        {
+          "id": "perplexity",
+          "name": "Perplexity",
+          "url": "https://www.perplexity.ai",
+          "description": "AI 搜索引擎，支持引用来源",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔍"
+        },
+        {
+          "id": "kimi",
+          "name": "Kimi",
+          "url": "https://kimi.moonshot.cn",
+          "description": "月之暗面 AI 助手，支持长上下文",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🌙"
+        },
+        {
+          "id": "udemy",
+          "name": "Udemy",
+          "url": "https://www.udemy.com",
+          "description": "在线课程平台，涵盖各类技能",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎓"
+        },
+        {
+          "id": "masterclass",
+          "name": "MasterClass",
+          "url": "https://www.masterclass.com",
+          "description": "名人授课的高端在线课程",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎓"
+        },
+        {
+          "id": "skillshare",
+          "name": "Skillshare",
+          "url": "https://www.skillshare.com",
+          "description": "创意技能学习平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨"
+        },
+        {
+          "id": "linkedin-learning",
+          "name": "LinkedIn Learning",
+          "url": "https://www.linkedin.com/learning/",
+          "description": "职场技能学习平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎓"
+        },
+        {
+          "id": "codecademy",
+          "name": "Codecademy",
+          "url": "https://www.codecademy.com",
+          "description": "交互式编程学习平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💻"
+        },
+        {
+          "id": "datacamp",
+          "name": "DataCamp",
+          "url": "https://www.datacamp.com",
+          "description": "数据科学在线学习平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊"
+        },
+        {
+          "id": "pluralsight",
+          "name": "Pluralsight",
+          "url": "https://www.pluralsight.com",
+          "description": "IT 和技能发展平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎓"
+        },
+        {
+          "id": "edx",
+          "name": "edX",
+          "url": "https://www.edx.org",
+          "description": "哈佛和 MIT 创办的在线教育平台",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎓"
+        },
+        {
+          "id": "futurelearn",
+          "name": "FutureLearn",
+          "url": "https://www.futurelearn.com",
+          "description": "英国在线教育平台",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎓"
+        },
+        {
+          "id": "memrise",
+          "name": "Memrise",
+          "url": "https://www.memrise.com",
+          "description": "语言学习应用，使用记忆技巧",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌱"
+        }
+      ]
+    },
+    {
+      "id": "cloud",
+      "name": "云服务",
+      "tools": [
+        {
+          "id": "aws",
+          "name": "AWS",
+          "url": "https://aws.amazon.com",
+          "description": "亚马逊云服务，全球最大云平台",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": {
+            "name": "AWS CDK",
+            "url": "https://aws.amazon.com/cdk"
+          },
+          "is_free": "freemium",
+          "icon": "☁️"
+        },
+        {
+          "id": "azure",
+          "name": "Azure",
+          "url": "https://azure.microsoft.com",
+          "description": "微软云服务",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": {
+            "name": "Azure Bicep",
+            "url": "https://azure.microsoft.com/products/bicep"
+          },
+          "is_free": "freemium",
+          "icon": "🔷"
+        },
+        {
+          "id": "gcp",
+          "name": "Google Cloud",
+          "url": "https://cloud.google.com",
+          "description": "谷歌云服务",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": {
+            "name": "Terraform",
+            "url": "https://terraform.io"
+          },
+          "is_free": "freemium",
+          "icon": "🔶"
+        },
+        {
+          "id": "cloudflare-pages",
+          "name": "Cloudflare Pages",
+          "url": "https://pages.cloudflare.com",
+          "description": "免费静态网站托管，全球 CDN",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "⚡"
+        },
+        {
+          "id": "vercel",
+          "name": "Vercel",
+          "url": "https://vercel.com",
+          "description": "前端部署平台，支持 Next.js",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "▲"
+        },
+        {
+          "id": "netlify",
+          "name": "Netlify",
+          "url": "https://www.netlify.com",
+          "description": "静态网站托管和 CI/CD",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔷"
+        },
+        {
+          "id": "supabase",
+          "name": "Supabase",
+          "url": "https://supabase.com",
+          "description": "开源 Firebase 替代，PostgreSQL + 实时",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🟢"
+        },
+        {
+          "id": "railway",
+          "name": "Railway",
+          "url": "https://railway.app",
+          "description": "一键部署平台，支持多种语言",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🚂"
+        },
+        {
+          "id": "digitalocean",
+          "name": "DigitalOcean",
+          "url": "https://www.digitalocean.com",
+          "description": "开发者友好的云服务器平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "☁️"
+        },
+        {
+          "id": "linode",
+          "name": "Linode",
+          "url": "https://www.linode.com",
+          "description": "云主机和云计算服务",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "☁️"
+        },
+        {
+          "id": "heroku",
+          "name": "Heroku",
+          "url": "https://www.heroku.com",
+          "description": "PaaS 平台，轻松部署应用",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "☁️"
+        },
+        {
+          "id": "render",
+          "name": "Render",
+          "url": "https://render.com",
+          "description": "现代云托管平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "☁️"
+        },
+        {
+          "id": "fly-io",
+          "name": "Fly.io",
+          "url": "https://fly.io",
+          "description": "全球分布式应用托管",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "☁️"
+        },
+        {
+          "id": "planetscale",
+          "name": "PlanetScale",
+          "url": "https://planetscale.com",
+          "description": "可扩展的 MySQL 数据库平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🟢"
+        },
+        {
+          "id": "neon",
+          "name": "Neon",
+          "url": "https://neon.tech",
+          "description": "无服务器 PostgreSQL 数据库",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💧"
+        },
+        {
+          "id": "upstash",
+          "name": "Upstash",
+          "url": "https://upstash.com",
+          "description": "无服务器 Redis 和 Kafka",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⚡"
+        },
+        {
+          "id": "cloudinary",
+          "name": "Cloudinary",
+          "url": "https://cloudinary.com",
+          "description": "媒体资产管理和服务平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "☁️"
+        },
+        {
+          "id": "firebase",
+          "name": "Firebase",
+          "url": "https://firebase.google.com",
+          "description": "Google 应用开发平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔥"
+        }
+      ]
+    },
+    {
+      "id": "productivity",
+      "name": "效率工具",
+      "tools": [
+        {
+          "id": "zapier",
+          "name": "Zapier",
+          "url": "https://zapier.com",
+          "description": "自动化工具，连接 5000+ 应用",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⚡"
+        },
+        {
+          "id": "n8n",
+          "name": "n8n",
+          "url": "https://n8n.io",
+          "description": "开源自动化工具，支持自部署",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Zapier",
+            "url": "https://zapier.com"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔗"
+        },
+        {
+          "id": "ifttt",
+          "name": "IFTTT",
+          "url": "https://ifttt.com",
+          "description": "简单自动化工具",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Zapier",
+            "url": "https://zapier.com"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔀"
+        },
+        {
+          "id": "todoist",
+          "name": "Todoist",
+          "url": "https://todoist.com",
+          "description": "任务管理工具",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✅"
+        },
+        {
+          "id": "evernote-cn",
+          "name": "印象笔记",
+          "url": "https://www.yinxiang.com",
+          "description": "中文笔记工具",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Notion AI",
+            "url": "https://www.notion.so"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📔"
+        },
+        {
+          "id": "dropbox",
+          "name": "Dropbox",
+          "url": "https://www.dropbox.com",
+          "description": "云存储和文件同步",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📦"
+        },
+        {
+          "id": "google-drive",
+          "name": "Google Drive",
+          "url": "https://drive.google.com",
+          "description": "谷歌云存储",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📁"
+        },
+        {
+          "id": "one-drive",
+          "name": "OneDrive",
+          "url": "https://onedrive.live.com",
+          "description": "微软云存储",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "☁️"
+        },
+        {
+          "id": "things",
+          "name": "Things 3",
+          "url": "https://culturedcode.com/things/",
+          "description": "优雅的苹果生态任务管理",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Todoist",
+            "url": "https://todoist.com"
+          },
+          "automation": null,
+          "is_free": "paid",
+          "icon": "✅"
+        },
+        {
+          "id": "ticktick",
+          "name": "TickTick",
+          "url": "https://ticktick.com",
+          "description": "多功能任务管理应用",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✅"
+        },
+        {
+          "id": "any-do",
+          "name": "Any.do",
+          "url": "https://www.any.do",
+          "description": "任务管理和日程规划",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✅"
+        },
+        {
+          "id": "box",
+          "name": "Box",
+          "url": "https://www.box.com",
+          "description": "企业云内容管理平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📦"
+        },
+        {
+          "id": "icloud",
+          "name": "iCloud",
+          "url": "https://www.icloud.com",
+          "description": "Apple 云存储服务",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "☁️"
+        },
+        {
+          "id": "trello-classic",
+          "name": "Notion Calendar",
+          "url": "https://www.notion.so/product/calendar",
+          "description": "Notion 日历，整合任务和日程",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📅"
+        },
+        {
+          "id": "calendly",
+          "name": "Calendly",
+          "url": "https://calendly.com",
+          "description": "智能会议预约工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📆"
+        },
+        {
+          "id": "make",
+          "name": "Make",
+          "url": "https://www.make.com",
+          "description": "可视化自动化平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "name": "数据工具",
+      "tools": [
+        {
+          "id": "airtable",
+          "name": "Airtable",
+          "url": "https://airtable.com",
+          "description": "在线数据库，类 Excel 界面",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊"
+        },
+        {
+          "id": "notion-db",
+          "name": "Notion 数据库",
+          "url": "https://www.notion.so",
+          "description": "Notion 内置数据库功能",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🗂️"
+        },
+        {
+          "id": "tableau",
+          "name": "Tableau",
+          "url": "https://www.tableau.com",
+          "description": "商业智能和数据可视化",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📈"
+        },
+        {
+          "id": "power-bi",
+          "name": "Power BI",
+          "url": "https://powerbi.microsoft.com",
+          "description": "微软商业智能工具",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊"
+        },
+        {
+          "id": "metabase",
+          "name": "Metabase",
+          "url": "https://www.metabase.com",
+          "description": "开源 BI 工具，可自部署",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📉"
+        },
+        {
+          "id": "google-analytics",
+          "name": "Google Analytics",
+          "url": "https://analytics.google.com",
+          "description": "网站流量分析",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📊"
+        },
+        {
+          "id": "mixpanel",
+          "name": "Mixpanel",
+          "url": "https://mixpanel.com",
+          "description": "产品分析工具",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📈"
+        },
+        {
+          "id": "amplitude",
+          "name": "Amplitude",
+          "url": "https://amplitude.com",
+          "description": "产品分析平台",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📉"
+        },
+        {
+          "id": "heap",
+          "name": "Heap",
+          "url": "https://heap.io",
+          "description": "自动捕获用户行为的分析工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊"
+        },
+        {
+          "id": "hotjar",
+          "name": "Hotjar",
+          "url": "https://www.hotjar.com",
+          "description": "网站热力图和用户行为分析",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔥"
+        },
+        {
+          "id": "crazy-egg",
+          "name": "Crazy Egg",
+          "url": "https://www.crazyegg.com",
+          "description": "网站热力图和滚动图分析",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🥚"
+        },
+        {
+          "id": "google-tag-manager",
+          "name": "Google Tag Manager",
+          "url": "https://tagmanager.google.com",
+          "description": "免费标签管理系统",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🏷️"
+        },
+        {
+          "id": "segment",
+          "name": "Segment",
+          "url": "https://segment.com",
+          "description": "客户数据平台，统一用户数据",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔗"
+        },
+        {
+          "id": "amplitude-genius",
+          "name": "Amplitude Genius",
+          "url": "https://amplitude.com/genius",
+          "description": "AI 驱动的产品洞察生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🧠"
+        },
+        {
+          "id": "fullstory",
+          "name": "FullStory",
+          "url": "https://www.fullstory.com",
+          "description": "数字体验平台，会话回放和洞察",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📹"
+        },
+        {
+          "id": "logrocket",
+          "name": "LogRocket",
+          "url": "https://logrocket.com",
+          "description": "前端监控和会话回放",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔍"
+        },
+        {
+          "id": "looker",
+          "name": "Looker",
+          "url": "https://looker.com",
+          "description": "Google 商业智能平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🔍"
+        },
+        {
+          "id": "qlik",
+          "name": "Qlik Sense",
+          "url": "https://www.qlik.com",
+          "description": "数据可视化和 BI 平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📊"
+        },
+        {
+          "id": "domo",
+          "name": "Domo",
+          "url": "https://www.domo.com",
+          "description": "云端商业操作系统",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📊"
+        },
+        {
+          "id": "sisense",
+          "name": "Sisense",
+          "url": "https://www.sisense.com",
+          "description": "嵌入式分析平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📈"
+        },
+        {
+          "id": "powerbi",
+          "name": "Power BI",
+          "url": "https://powerbi.microsoft.com",
+          "description": "微软商业智能平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊"
+        }
+      ]
+    },
+    {
+      "id": "ai-models",
+      "name": "AI 模型/API",
+      "tools": [
+        {
+          "id": "claude-api",
+          "name": "Claude API",
+          "url": "https://console.anthropic.com",
+          "description": "Anthropic Claude 模型 API",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📝"
+        },
+        {
+          "id": "gemini",
+          "name": "Google Gemini",
+          "url": "https://gemini.google.com",
+          "description": "Google 多模态 AI 模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💎"
+        },
+        {
+          "id": "mistral",
+          "name": "Mistral AI",
+          "url": "https://mistral.ai",
+          "description": "法国开源 AI 模型公司",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌬️"
+        },
+        {
+          "id": "cohere",
+          "name": "Cohere",
+          "url": "https://cohere.com",
+          "description": "企业级 AI 语言模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔗"
+        },
+        {
+          "id": "groq",
+          "name": "Groq",
+          "url": "https://groq.com",
+          "description": "超高速 AI 推理平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⚡"
+        },
+        {
+          "id": "together-ai",
+          "name": "Together AI",
+          "url": "https://together.ai",
+          "description": "开源模型推理平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🤝"
+        },
+        {
+          "id": "huggingface",
+          "name": "Hugging Face",
+          "url": "https://huggingface.co",
+          "description": "AI 模型开源社区和平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🤗"
+        },
+        {
+          "id": "openrouter",
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai",
+          "description": "统一 AI 模型 API 聚合平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🛣️"
+        },
+        {
+          "id": "deepseek",
+          "name": "DeepSeek",
+          "url": "https://deepseek.com",
+          "description": "国产高性能 AI 模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔍"
+        },
+        {
+          "id": "qwen",
+          "name": "通义千问",
+          "url": "https://tongyi.aliyun.com",
+          "description": "阿里云 Qwen 大模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌊"
+        },
+        {
+          "id": "glm",
+          "name": "智谱 GLM",
+          "url": "https://www.zhipuai.cn",
+          "description": "智谱 AI 大模型平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔷"
+        },
+        {
+          "id": "wenxin",
+          "name": "文心一言",
+          "url": "https://yiyan.baidu.com",
+          "description": "百度文心大模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💭"
+        },
+        {
+          "id": "tongyi-wanxiang",
+          "name": "通义万相",
+          "url": "https://wanxiang.aliyun.com",
+          "description": "阿里云 AI 绘画工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨"
+        },
+        {
+          "id": "kimi-chat",
+          "name": "Kimi 聊天",
+          "url": "https://kimi.moonshot.cn",
+          "description": "月之暗面 AI 助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🌙"
+        },
+        {
+          "id": "元宝",
+          "name": "元宝",
+          "url": "https://yuanbao.tencent.com",
+          "description": "腾讯元宝 AI 助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "💰"
+        },
+        {
+          "id": "anthropic",
+          "name": "Anthropic API",
+          "url": "https://anthropic.com",
+          "description": "Claude 模型 API 服务",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🏛️"
+        },
+        {
+          "id": "anyscale",
+          "name": "Anyscale",
+          "url": "https://anyscale.com",
+          "description": "分布式 AI 训练平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "☁️"
+        },
+        {
+          "id": "replicate",
+          "name": "Replicate",
+          "url": "https://replicate.com",
+          "description": "一键部署 AI 模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔄"
+        },
+        {
+          "id": "ollama",
+          "name": "Ollama",
+          "url": "https://ollama.com",
+          "description": "本地运行大语言模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🦙"
+        }
+      ]
+    },
+    {
+      "id": "ai-writing",
+      "name": "AI 写作/营销",
+      "tools": [
+        {
+          "id": "jasper",
+          "name": "Jasper",
+          "url": "https://jasper.ai",
+          "description": "AI 营销内容生成平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎨"
+        },
+        {
+          "id": "copy-ai",
+          "name": "Copy.ai",
+          "url": "https://www.copy.ai",
+          "description": "AI 营销文案生成工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📋"
+        },
+        {
+          "id": "writesonic",
+          "name": "Writesonic",
+          "url": "https://writesonic.com",
+          "description": "AI 文章和营销内容生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✍️"
+        },
+        {
+          "id": "rytr",
+          "name": "Rytr",
+          "url": "https://rytr.me",
+          "description": "AI 写作助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📝"
+        },
+        {
+          "id": "frase",
+          "name": "Frase",
+          "url": "https://www.frase.io",
+          "description": "AI 内容研究和写作工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🦒"
+        },
+        {
+          "id": "surfer",
+          "name": "Surfer SEO",
+          "url": "https://surferseo.com",
+          "description": "AI 驱动的 SEO 内容优化",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🏄"
+        },
+        {
+          "id": "marketmuse",
+          "name": "MarketMuse",
+          "url": "https://www.marketmuse.com",
+          "description": "AI 内容策略和规划",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎯"
+        },
+        {
+          "id": "grammarly-business",
+          "name": "Grammarly Business",
+          "url": "https://www.grammarly.com/business",
+          "description": "企业级 AI 写作助手",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "✍️"
+        },
+        {
+          "id": "proWritingAid",
+          "name": "ProWritingAid",
+          "url": "https://prowritingaid.com",
+          "description": "AI 写作检查和优化",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📖"
+        },
+        {
+          "id": "hemingway",
+          "name": "Hemingway Editor",
+          "url": "https://hemingwayapp.com",
+          "description": "文章可读性检查工具",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Grammarly",
+            "url": "https://www.grammarly.com"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📝"
+        },
+        {
+          "id": "copyai",
+          "name": "Copy.ai",
+          "url": "https://www.copy.ai",
+          "description": "AI 营销文案生成器",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📋"
+        }
+      ]
+    },
+    {
+      "id": "ai-presentation",
+      "name": "AI 演示/PPT",
+      "tools": [
+        {
+          "id": "tome",
+          "name": "Tome",
+          "url": "https://tome.app",
+          "description": "AI 叙事演示工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📖"
+        },
+        {
+          "id": "gamma",
+          "name": "Gamma",
+          "url": "https://gamma.app",
+          "description": "AI 生成演示文稿和网页",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌟"
+        },
+        {
+          "id": "slidesgo-ai",
+          "name": "Slidesgo AI",
+          "url": "https://slidesgo.com",
+          "description": "AI 生成 PPT 模板",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊"
+        },
+        {
+          "id": "beautiful-ai",
+          "name": "Beautiful.ai",
+          "url": "https://www.beautiful.ai",
+          "description": "智能演示设计工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎨"
+        },
+        {
+          "id": "decktopus",
+          "name": "Decktopus",
+          "url": "https://www.decktopus.com",
+          "description": "AI 演示文稿生成器",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📑"
+        },
+        {
+          "id": "canva-presentations",
+          "name": "Canva 演示",
+          "url": "https://www.canva.com/presentations",
+          "description": "Canva AI 演示工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🖼️"
+        },
+        {
+          "id": "pitch",
+          "name": "Pitch",
+          "url": "https://pitch.com",
+          "description": "协作式演示工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊"
+        },
+        {
+          "id": "prezi",
+          "name": "Prezi",
+          "url": "https://prezi.com",
+          "description": "动态演示工具",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "Gamma",
+            "url": "https://gamma.app"
+          },
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔄"
+        }
+      ]
+    },
+    {
+      "id": "ai-scheduling",
+      "name": "AI 日程管理",
+      "tools": [
+        {
+          "id": "motion",
+          "name": "Motion",
+          "url": "https://www.usemotion.com",
+          "description": "AI 自动日程安排工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎬"
+        },
+        {
+          "id": "reclaim",
+          "name": "Reclaim",
+          "url": "https://reclaim.ai",
+          "description": "AI 时间管理助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔄"
+        },
+        {
+          "id": "clockwise",
+          "name": "Clockwise",
+          "url": "https://www.clockwise.so",
+          "description": "团队日程优化工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⏰"
+        },
+        {
+          "id": "calendly-ai",
+          "name": "Calendly",
+          "url": "https://calendly.com",
+          "description": "智能会议预约工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📅"
+        },
+        {
+          "id": "savvy-cal",
+          "name": "SavvyCal",
+          "url": "https://savvycal.com",
+          "description": "智能日程链接工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔗"
+        },
+        {
+          "id": "notion-calendar",
+          "name": "Notion Calendar",
+          "url": "https://www.notion.so/calendar",
+          "description": "Notion 集成日历",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📆"
+        },
+        {
+          "id": "motion-schedule",
+          "name": "Motion",
+          "url": "https://www.usemotion.com",
+          "description": "AI 自动排程助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎬"
+        },
+        {
+          "id": "sunsama",
+          "name": "Sunsama",
+          "url": "https://sunsama.com",
+          "description": "AI 驱动的每日计划助手",
+          "ai_type": "ai-native",
+          "is_free": "paid",
+          "icon": "🌞"
+        }
+      ]
+    },
+    {
+      "id": "ai-meeting",
+      "name": "AI 会议转录",
+      "tools": [
+        {
+          "id": "fireflies",
+          "name": "Fireflies",
+          "url": "https://fireflies.ai",
+          "description": "AI 会议记录和转录",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🪲"
+        },
+        {
+          "id": "grain",
+          "name": "Grain",
+          "url": "https://grain.com",
+          "description": "视频会议高光提取",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌾"
+        },
+        {
+          "id": "otter",
+          "name": "Otter.ai",
+          "url": "https://otter.ai",
+          "description": "AI 语音转录工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🦦"
+        },
+        {
+          "id": "fathom",
+          "name": "Fathom",
+          "url": "https://www.fathom.video",
+          "description": "免费 AI 会议记录",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🌊"
+        },
+        {
+          "id": "tl-dv",
+          "name": "tl;dv",
+          "url": "https://www.tldv.io",
+          "description": "会议记录和摘要",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⏩"
+        },
+        {
+          "id": "zoom-ai",
+          "name": "Zoom AI Companion",
+          "url": "https://zoom.ai",
+          "description": "Zoom 内置 AI 助手",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📹"
+        },
+        {
+          "id": "tlfdv",
+          "name": "tl;dv",
+          "url": "https://tldv.io",
+          "description": "会议录制和 AI 摘要",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⏩"
+        },
+        {
+          "id": "tlfdv-ai",
+          "name": "tl;dv",
+          "url": "https://tldv.io",
+          "description": "会议录制和 AI 摘要",
+          "ai_type": "ai-native",
+          "is_free": "freemium",
+          "icon": "⏩"
+        }
+      ]
+    },
+    {
+      "id": "ai-social",
+      "name": "社交媒体 AI",
+      "tools": [
+        {
+          "id": "buffer-ai",
+          "name": "Buffer AI",
+          "url": "https://buffer.com",
+          "description": "AI 社交媒体内容生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📱"
+        },
+        {
+          "id": "lately",
+          "name": "Lately",
+          "url": "https://lately.ai",
+          "description": "AI 社交媒体内容策略",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📊"
+        },
+        {
+          "id": "predis",
+          "name": "Predis.ai",
+          "url": "https://predis.ai",
+          "description": "AI 社交媒体内容生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨"
+        },
+        {
+          "id": "opus-pro",
+          "name": "Opus Pro",
+          "url": "https://opus.pro",
+          "description": "AI 视频剪辑和社交媒体",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎬"
+        },
+        {
+          "id": "vizard",
+          "name": "Vizard",
+          "url": "https://vizard.ai",
+          "description": "AI 视频转社交媒体内容",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📹"
+        },
+        {
+          "id": "recast",
+          "name": "Recast",
+          "url": "https://recast.so",
+          "description": "AI 音频转社交媒体内容",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎙️"
+        },
+        {
+          "id": "opencall",
+          "name": "OpenCall",
+          "url": "https://opencall.ai",
+          "description": "AI 播客生成工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎧"
+        },
+        {
+          "id": "headliner",
+          "name": "Headliner",
+          "url": "https://headliner.app",
+          "description": "音频转视频工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎬"
+        },
+        {
+          "id": "canva-social",
+          "name": "Canva 社交媒体",
+          "url": "https://www.canva.com/social-media-templates",
+          "description": "Canva 社交媒体模板",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🖼️"
+        },
+        {
+          "id": "later",
+          "name": "Later",
+          "url": "https://later.com",
+          "description": "社交媒体调度工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📅"
+        },
+        {
+          "id": "buffer",
+          "name": "Buffer",
+          "url": "https://buffer.com",
+          "description": "社交媒体管理工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📱"
+        },
+        {
+          "id": "hootsuite",
+          "name": "Hootsuite",
+          "url": "https://hootsuite.com",
+          "description": "社交媒体管理平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🦉"
+        },
+        {
+          "id": "sprout",
+          "name": "Sprout Social",
+          "url": "https://sproutsocial.com",
+          "description": "社交媒体分析和互动",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🌱"
+        },
+        {
+          "id": "planoly",
+          "name": "Planoly",
+          "url": "https://planoly.com",
+          "description": "Instagram 内容规划工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📱"
+        },
+        {
+          "id": "socialbee",
+          "name": "SocialBee",
+          "url": "https://socialbee.com",
+          "description": "社交媒体内容分类发布",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🐝"
+        }
+      ]
+    },
+    {
+      "id": "ai-coding",
+      "name": "AI 编程助手",
+      "tools": [
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "url": "https://claude.ai/code",
+          "description": "Claude 代码生成工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📜"
+        },
+        {
+          "id": "code-whisperer",
+          "name": "CodeWhisperer",
+          "url": "https://aws.amazon.com/codewhisperer",
+          "description": "亚马逊 AI 编程助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🤫"
+        },
+        {
+          "id": "code-gee-x",
+          "name": "CodeGeeX",
+          "url": "https://codegeex.cn",
+          "description": "智谱 AI 编程助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🧩"
+        },
+        {
+          "id": "amazon-q",
+          "name": "Amazon Q",
+          "url": "https://aws.amazon.com/q",
+          "description": "亚马逊企业 AI 助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "❓"
+        },
+        {
+          "id": "tabnine-pro",
+          "name": "Tabnine Pro",
+          "url": "https://www.tabnine.com/pricing",
+          "description": "Tabnine 高级版",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🐕"
+        },
+        {
+          "id": "sourcegraph-cody",
+          "name": "Cody",
+          "url": "https://sourcegraph.com/cody",
+          "description": "Sourcegraph AI 编程助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔍"
+        },
+        {
+          "id": "codeium-enterprise",
+          "name": "Codeium Enterprise",
+          "url": "https://codeium.com/enterprise",
+          "description": "Codeium 企业版",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎯"
+        },
+        {
+          "id": "blackbox",
+          "name": "Blackbox AI",
+          "url": "https://www.blackbox.ai",
+          "description": "AI 编程问答工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📦"
+        },
+        {
+          "id": "sourcegraph",
+          "name": "Sourcegraph",
+          "url": "https://sourcegraph.com",
+          "description": "代码搜索和智能导航",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔍"
+        },
+        {
+          "id": "ghostty",
+          "name": "Ghostty",
+          "url": "https://ghostty.org",
+          "description": "快速、功能丰富的终端模拟器",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "👻"
+        },
+        {
+          "id": "warp",
+          "name": "Warp",
+          "url": "https://www.warp.dev",
+          "description": "AI 驱动的现代化终端",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌀"
+        },
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "url": "https://openai.com",
+          "description": "AI 代码生成模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🤖"
+        }
+      ]
+    },
+    {
+      "id": "ai-search",
+      "name": "AI 搜索",
+      "tools": [
+        {
+          "id": "perplexity-pro",
+          "name": "Perplexity Pro",
+          "url": "https://www.perplexity.ai/pro",
+          "description": "Perplexity 专业版",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🔍"
+        },
+        {
+          "id": "you-com",
+          "name": "You.com",
+          "url": "https://you.com",
+          "description": "AI 可定制搜索引擎",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔎"
+        },
+        {
+          "id": "phind",
+          "name": "Phind",
+          "url": "https://www.phind.com",
+          "description": "开发者 AI 搜索引擎",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🔧"
+        },
+        {
+          "id": "brave-search",
+          "name": "Brave Search",
+          "url": "https://search.brave.com",
+          "description": "隐私优先的 AI 搜索",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🦁"
+        },
+        {
+          "id": "search15",
+          "name": "Search15",
+          "url": "https://www.search15.com",
+          "description": "AI 驱动的多源搜索",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔍"
+        },
+        {
+          "id": "consensus",
+          "name": "Consensus",
+          "url": "https://consensus.app",
+          "description": "学术论文 AI 搜索",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📚"
+        },
+        {
+          "id": "elicit",
+          "name": "Elicit",
+          "url": "https://elicit.com",
+          "description": "AI 研究助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔬"
+        },
+        {
+          "id": "scite",
+          "name": "Scite",
+          "url": "https://scite.ai",
+          "description": "智能文献引用分析",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📖"
+        },
+        {
+          "id": "you",
+          "name": "You.com",
+          "url": "https://you.com",
+          "description": "可定制的 AI 搜索引擎",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔎"
+        }
+      ]
+    },
+    {
+      "id": "ai-image",
+      "name": "AI 图像生成",
+      "tools": [
+        {
+          "id": "midjourney-v6",
+          "name": "Midjourney V6",
+          "url": "https://www.midjourney.com",
+          "description": "Midjourney 最新版本",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎭"
+        },
+        {
+          "id": "dalle3",
+          "name": "DALL-E 3",
+          "url": "https://openai.com/dall-e-3",
+          "description": "OpenAI 图像生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🖼️"
+        },
+        {
+          "id": "stable-diffusion-xl",
+          "name": "Stable Diffusion XL",
+          "url": "https://stability.ai",
+          "description": "SDXL 高清图像生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🧬"
+        },
+        {
+          "id": "leonardo",
+          "name": "Leonardo.ai",
+          "url": "https://leonardo.ai",
+          "description": "游戏资产 AI 生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🦁"
+        },
+        {
+          "id": "dreamstudio",
+          "name": "DreamStudio",
+          "url": "https://dreamstudio.ai",
+          "description": "Stability AI 官方生成工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💭"
+        },
+        {
+          "id": "adobe-sensei",
+          "name": "Adobe Sensei",
+          "url": "https://www.adobe.com/sensei.html",
+          "description": "Adobe AI 框架",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🔮"
+        },
+        {
+          "id": "canva-magic",
+          "name": "Canva 魔法编辑",
+          "url": "https://www.canva.com/features/magic-edit",
+          "description": "Canva AI 图像编辑",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✨"
+        },
+        {
+          "id": "clipdrop",
+          "name": "Clipdrop",
+          "url": "https://clipdrop.co",
+          "description": "Stability AI 图像工具集",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✂️"
+        },
+        {
+          "id": "playground",
+          "name": "Playground AI",
+          "url": "https://playgroundai.com",
+          "description": "在线 AI 图像生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨"
+        },
+        {
+          "id": "artbreeder",
+          "name": "Artbreeder",
+          "url": "https://www.artbreeder.com",
+          "description": "AI 图像混合生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎭"
+        },
+        {
+          "id": "nightcafe",
+          "name": "NightCafe",
+          "url": "https://creator.nightcafe.studio",
+          "description": "AI 艺术创作社区",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌙"
+        },
+        {
+          "id": "stability-ai",
+          "name": "Stability AI",
+          "url": "https://stability.ai",
+          "description": "开源 AI 图像模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🧬"
+        },
+        {
+          "name": "StockAI",
+          "url": "https://stockai.app",
+          "description": "AI 生成库存图片",
+          "ai_type": "ai-native",
+          "id": "stockai",
+          "is_free": "paid",
+          "icon": "🖼️"
+        }
+      ]
+    },
+    {
+      "id": "ai-voice",
+      "name": "AI 语音/音频",
+      "tools": [
+        {
+          "id": "elevenlabs-clone",
+          "name": "ElevenLabs 克隆",
+          "url": "https://elevenlabs.io/voice-clone",
+          "description": "语音克隆功能",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🔊"
+        },
+        {
+          "id": "playht",
+          "name": "Play.ht",
+          "url": "https://play.ht",
+          "description": "AI 语音生成平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎙️"
+        },
+        {
+          "id": "murf",
+          "name": "Murf.ai",
+          "url": "https://murf.ai",
+          "description": "AI 语音合成工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎤"
+        },
+        {
+          "id": "speechify",
+          "name": "Speechify",
+          "url": "https://speechify.com",
+          "description": "文本转语音阅读器",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📖"
+        },
+        {
+          "id": "lovo",
+          "name": "LOVO",
+          "url": "https://lovo.ai",
+          "description": "AI 语音生成器",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎭"
+        },
+        {
+          "id": "resemble-ai",
+          "name": "Resemble AI",
+          "url": "https://www.resemble.ai",
+          "description": "实时语音克隆",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🔊"
+        },
+        {
+          "id": "wellSaid",
+          "name": "WellSaid Labs",
+          "url": "https://wellsaidlabs.com",
+          "description": "专业级 AI 语音",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🎙️"
+        },
+        {
+          "id": "coqui",
+          "name": "Coqui TTS",
+          "url": "https://coqui.ai",
+          "description": "开源语音合成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🐸"
+        },
+        {
+          "id": "resemble",
+          "name": "Resemble AI",
+          "url": "https://www.resemble.ai",
+          "description": "AI 语音克隆和生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🔊"
+        },
+        {
+          "id": "openai-tts",
+          "name": "OpenAI TTS",
+          "url": "https://platform.openai.com/docs/guides/text-to-speech",
+          "description": "OpenAI 文本转语音 API",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🔊"
+        },
+        {
+          "name": "Speechify",
+          "url": "https://speechify.com",
+          "description": "AI 文本朗读工具",
+          "ai_type": "ai-native",
+          "id": "speechify-ai",
+          "is_free": "freemium",
+          "icon": "📖"
+        }
+      ]
+    },
+    {
+      "id": "ai-no-code",
+      "name": "AI 无代码",
+      "tools": [
+        {
+          "id": "dify",
+          "name": "Dify",
+          "url": "https://dify.ai",
+          "description": "开源 LLM 应用开发平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💡"
+        },
+        {
+          "id": "flowise",
+          "name": "Flowise",
+          "url": "https://flowiseai.com",
+          "description": "可视化 LLM 工作流",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌊"
+        },
+        {
+          "id": "langflow",
+          "name": "LangFlow",
+          "url": "https://langflow.org",
+          "description": "可视化 AI 工作流构建",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌊"
+        },
+        {
+          "id": "coze",
+          "name": "Coze",
+          "url": "https://www.coze.com",
+          "description": "字节跳动 AI Bot 平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎈"
+        },
+        {
+          "id": "stack-ai",
+          "name": "Stack AI",
+          "url": "https://www.stackai.com",
+          "description": "企业 AI 应用构建",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📚"
+        },
+        {
+          "id": "palmiye",
+          "name": "Palmiye",
+          "url": "https://palmiye.ai",
+          "description": "AI 应用开发平台",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌴"
+        },
+        {
+          "id": "bubble-ai",
+          "name": "Bubble",
+          "url": "https://bubble.io",
+          "description": "无代码应用开发",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🫧"
+        },
+        {
+          "id": "webflow",
+          "name": "Webflow",
+          "url": "https://webflow.com",
+          "description": "可视化网站构建",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌊"
+        },
+        {
+          "id": "framer",
+          "name": "Framer",
+          "url": "https://framer.com",
+          "description": "AI 驱动的网站设计工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🖼️"
+        },
+        {
+          "id": "bubble",
+          "name": "Bubble",
+          "url": "https://bubble.io",
+          "description": "无代码 Web 应用开发平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🫧"
+        },
+        {
+          "id": "webflow-studio",
+          "name": "Webflow Studio",
+          "url": "https://webflow.com",
+          "description": "Webflow 桌面编辑器",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🎨"
+        },
+        {
+          "id": "readymag",
+          "name": "Readymag",
+          "url": "https://readymag.com",
+          "description": "创意网页设计工具",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📰"
+        },
+        {
+          "id": "tilda",
+          "name": "Tilda",
+          "url": "https://tilda.cc",
+          "description": "落地页和网站构建器",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🏗️"
+        }
+      ]
+    },
+    {
+      "id": "ai-devops",
+      "name": "AI DevOps",
+      "tools": [
+        {
+          "id": "github-actions-ai",
+          "name": "GitHub Actions AI",
+          "url": "https://github.com/features/actions",
+          "description": "CI/CD 自动化",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⚙️"
+        },
+        {
+          "id": "gitlab-ai",
+          "name": "GitLab Duo",
+          "url": "https://about.gitlab.com/products/duo",
+          "description": "GitLab AI 助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "🦊"
+        },
+        {
+          "id": "coderabbit",
+          "name": "CodeRabbit",
+          "url": "https://coderabbit.ai",
+          "description": "AI 代码审查工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🐇"
+        },
+        {
+          "id": "reviewbot",
+          "name": "ReviewBot",
+          "url": "https://reviewbot.ai",
+          "description": "AI PR 审查",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🤖"
+        },
+        {
+          "id": "sentry-ai",
+          "name": "Sentry AI",
+          "url": "https://sentry.io",
+          "description": "错误追踪和 AI 分析",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🚨"
+        },
+        {
+          "id": "datadog-ai",
+          "name": "Datadog AI",
+          "url": "https://www.datadoghq.com",
+          "description": "监控和 AI 异常检测",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "paid",
+          "icon": "📊"
+        },
+        {
+          "id": "gitlab-duo",
+          "name": "GitLab Duo",
+          "url": "https://gitlab.com",
+          "description": "GitLab 内置 AI 助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🦊"
+        },
+        {
+          "id": "jetbrains-space",
+          "name": "JetBrains Space",
+          "url": "https://www.jetbrains.com/space/",
+          "description": "一体化 DevOps 平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔧"
+        },
+        {
+          "id": "circleci",
+          "name": "CircleCI",
+          "url": "https://circleci.com",
+          "description": "云端 CI/CD 平台",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⚡"
+        },
+        {
+          "id": "github-actions",
+          "name": "GitHub Actions",
+          "url": "https://github.com/features/actions",
+          "description": "GitHub 原生 CI/CD",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🐙"
+        },
+        {
+          "id": "jenkins-ai",
+          "name": "Jenkins",
+          "url": "https://www.jenkins.io",
+          "description": "开源自动化服务器",
+          "ai_type": "traditional",
+          "ai_alternative": {
+            "name": "GitHub Actions",
+            "url": "https://github.com/features/actions"
+          },
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🔧"
+        },
+        {
+          "id": "terraform",
+          "name": "Terraform",
+          "url": "https://www.terraform.io",
+          "description": "基础设施即代码工具",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🏗️"
+        },
+        {
+          "id": "jenkins",
+          "name": "Jenkins",
+          "url": "https://www.jenkins.io",
+          "description": "开源自动化服务器",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🔧"
+        }
+      ]
+    }
+  ]
+}
