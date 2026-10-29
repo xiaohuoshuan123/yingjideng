@@ -1,0 +1,5 @@
+# 统一行尾为 LF：本仓跑在 Linux/WSL（wrangler 部署脚本是 bash），
+# 而工作副本放在 /mnt/d，Git for Windows 的 system 级 core.autocrlf=true
+# 会在 checkout 时把文本转成 CRLF，导致 deploy.sh 报 "bad interpreter"。
+# 这一行让仓库与工作区都保持 LF，且 git 会自动识别二进制文件不转换。
+* text=auto eol=lf

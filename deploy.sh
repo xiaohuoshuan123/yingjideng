@@ -22,8 +22,8 @@ echo "项目:    $PROJECT_NAME"
 echo "工作目录: $(pwd)"
 echo ""
 
-# 1. 进入项目目录
-cd /home/ubuntu/agency-agents-zh/yingjideng-static
+# 1. 进入项目目录（随脚本自身定位：无论从 D:/projects 直跑，还是从 WSL 的 symlink 跑，都指向同一份）
+cd "$(dirname "$0")"
 
 # 2. 清理并创建临时 staging 目录
 rm -rf "$STAGE_DIR"
