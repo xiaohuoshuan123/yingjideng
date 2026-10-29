@@ -35,3 +35,7 @@ coverage/
 # Python 缓存（不应入库）
 __pycache__/
 *.pyc
+
+# 仅本地调试用的接口，勿部署
+functions/api/debug.js
+functions/api/test-email.js
