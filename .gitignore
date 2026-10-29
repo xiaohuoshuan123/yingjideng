@@ -32,3 +32,6 @@ npm-debug.log*
 
 # Test
 coverage/
+# Python 缓存（不应入库）
+__pycache__/
+*.pyc
