@@ -2,8 +2,10 @@
 // 路径: functions/api/reviews.js
 // 处理工具评价/评论
 
+import { sendEmailNotification } from './feedback.js';
+
 export async function onRequest(context) {
-    const { request, env } = context;
+    const { request, env, waitUntil } = context;
     const url = new URL(request.url);
     const method = request.method;
 
@@ -20,13 +22,13 @@ export async function onRequest(context) {
 
     try {
         switch (method) {
-            case 'GET':
-                return await getReviews(url, env.yingjideng_db);
-            case 'POST':
-                return await submitReview(request, env.yingjideng_db);
-            default:
-                return jsonResponse({ error: 'Method not allowed' }, 405);
-        }
+                    case 'GET':
+                        return await getReviews(url, env.yingjideng_db);
+                    case 'POST':
+                        return await submitReview(request, env.yingjideng_db, env, waitUntil);
+                    default:
+                        return jsonResponse({ error: 'Method not allowed' }, 405);
+                }
     } catch (error) {
         console.error('Reviews API error:', error);
         return jsonResponse({ error: error.message }, 500);
@@ -91,7 +93,7 @@ async function getReviews(url, db) {
 }
 
 // 提交评价
-async function submitReview(request, db) {
+async function submitReview(request, db, env, waitUntil) {
     const body = await request.json();
     const { tool_id, tool_name, rating, comment, author } = body;
 
@@ -142,20 +144,36 @@ async function submitReview(request, db) {
     );
 
     const result = await stmt.bind(
-        tool_id,
-        tool_name || '',
-        rating,
-        comment.trim(),
-        author || '匿名用户',
-        userIp,
-        userAgent
-    ).run();
+            tool_id,
+            tool_name || '',
+            rating,
+            comment.trim(),
+            author || '匿名用户',
+            userIp,
+            userAgent
+        ).run();
 
-    return jsonResponse({
-        success: true,
-        message: '评价提交成功，感谢您的分享！',
-        data: { id: result.meta.last_row_id }
-    }, 201);
+        const reviewId = result.meta.last_row_id;
+
+        // 异步发送邮件通知（不阻塞响应，但确保完成）
+        waitUntil(sendEmailNotification(env, {
+            id: reviewId,
+            feedback_type: 'review',
+            typeLabel: '⭐ 工具评价',
+            tool_id,
+            tool_name: tool_name || '',
+            email: '',
+            content: `评分: ${rating}/5\n评价: ${comment.trim()}`,
+            userIp,
+            userAgent,
+            created_at: new Date().toISOString()
+        }).catch(err => console.error('Review email failed:', err)));
+
+        return jsonResponse({
+            success: true,
+            message: '评价提交成功，感谢您的分享！',
+            data: { id: reviewId }
+        }, 201);
 }
 
 // 工具函数

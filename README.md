@@ -173,3 +173,5 @@ npx http-server yingjideng-static -p 8000
 ## License
 
 MIT License
+
+<!-- 部署源说明：线上 yingjideng.pages.dev 由本仓库 main 分支内容部署（2026-10-29 核对） -->

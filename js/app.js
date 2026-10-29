@@ -1129,14 +1129,14 @@ function renderTools() {
     }).join('');
     
     // 重新初始化懒加载
-    initLazyLoading();
-}
+        initLazyLoading();
+    }
 
-// ============================================
-// 工具详情模态框
-// ============================================
+    // ============================================
+    // 工具详情模态框
+    // ============================================
 
-async function showToolDetail(toolId) {
+    async function showToolDetail(toolId) {
     const tool = allTools.find(t => t.id === toolId);
     if (!tool) return;
     
@@ -1219,35 +1219,244 @@ async function showToolDetail(toolId) {
             bindFeedbackEvents();
         }
     }, 100);
+    }
+
+
+
+// ============================================
+// 评价功能函数（用于模态框评价标签页）
+// ============================================
+
+// 获取工具平均评分
+async function getToolAverageRating(toolId) {
+    try {
+        const response = await fetch(`/api/reviews?tool_id=${encodeURIComponent(toolId)}`);
+        const data = await response.json();
+        if (data.stats && data.stats.average !== undefined) {
+            return data.stats.average;
+        }
+    } catch (error) {
+        console.error('Failed to get average rating:', error);
+    }
+    return null;
 }
 
-// ============================================
-// 渲染分类菜单
-// ============================================
+// 获取工具评价列表
+async function getToolReviews(toolId) {
+    try {
+        const response = await fetch(`/api/reviews?tool_id=${encodeURIComponent(toolId)}`);
+        const data = await response.json();
+        if (data.data && Array.isArray(data.data)) {
+            return data.data;
+        }
+    } catch (error) {
+        console.error('Failed to get reviews:', error);
+    }
+    return [];
+}
+
+// 渲染模态框评价标签页
+async function renderReviewsModal(toolId, toolName) {
+    try {
+        const response = await fetch(`/api/reviews?tool_id=${encodeURIComponent(toolId)}`);
+        const data = await response.json();
+    
+        if (data.error) {
+            return `<div class="alert alert-warning">加载评价失败: ${data.error}</div>`;
+        }
+    
+        const stats = data.stats || { total: 0, average: 0, distribution: {5:0,4:0,3:0,2:0,1:0} };
+        const reviews = data.data || [];
+    
+        let html = `
+            <div class="reviews-modal-container">
+                <!-- 评价统计 -->
+                <div class="reviews-stats-modal mb-3">
+                    <div class="row">
+                        <div class="col-md-2 text-center">
+                            <div class="display-3 text-warning">${stats.average || 0}</div>
+                            <small class="text-muted">平均分</small>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="mb-2">
+                                <strong>${stats.total || 0} 条评价</strong>
+                            </div>
+        `;
+    
+        // 星级分布条
+        const dist = stats.distribution || {5:0,4:0,3:0,2:0,1:0};
+        const total = stats.total || 1;
+        for (let star = 5; star >= 1; star--) {
+            const count = dist[star] || 0;
+            const percent = (count / total * 100).toFixed(1);
+            html += `
+                <div class="d-flex align-items-center mb-1">
+                    <span class="text-warning small" style="width: 60px;">${'★'.repeat(star)}${'☆'.repeat(5-star)}</span>
+                    <div class="flex-grow-1" style="height: 8px; background: #e9ecef; border-radius: 4px; margin: 0 10px;">
+                        <div style="width: ${percent}%; height: 100%; background: #ffc107; border-radius: 4px; transition: width 0.3s;"></div>
+                    </div>
+                    <span class="small text-muted" style="width: 40px;">${count} (${percent}%)</span>
+                </div>
+            `;
+        }
+    
+        html += `
+                    </div>
+                </div>
+            
+                <!-- 评价列表 -->
+                <div class="reviews-list-modal" style="max-height: 300px; overflow-y: auto;">
+        `;
+    
+        if (reviews.length === 0) {
+            html += `<div class="text-center text-muted py-4">暂无评价，快来抢沙发！</div>`;
+        } else {
+            html += reviews.map(review => `
+                <div class="review-item-modal border-bottom py-2">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="font-weight-bold">${escapeHtml(review.author || '匿名')}</span>
+                        <span class="text-warning small">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</span>
+                    </div>
+                    <div class="text-muted small mb-1">${escapeHtml(review.comment)}</div>
+                    <div class="text-muted small">${new Date(review.created_at).toLocaleString('zh-CN')}</div>
+                </div>
+            `).join('');
+        }
+    
+        html += `
+                </div>
+            
+                <!-- 评价表单 -->
+                <div class="review-form-modal mt-3">
+                    <hr>
+                    <h6>写评价</h6>
+                    <div class="rating-input-modal mb-2">
+                        <label class="mr-2">评分:</label>
+                        <span class="star-rating-modal" data-tool-id="${toolId}">
+                            ${[1,2,3,4,5].map(s => `<i class="far fa-star star-btn-modal" data-rating="${s}" style="cursor: pointer; font-size: 1.5rem; color: #ddd;"></i>`).join('')}
+                        </span>
+                        <input type="hidden" id="modal-review-rating" value="">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="modal-review-comment" class="form-control" rows="3" placeholder="分享你的使用体验... (至少 2 字符)"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="modal-review-author" class="form-control" placeholder="昵称 (可选，默认匿名)">
+                    </div>
+                    <button class="btn btn-primary btn-sm" id="modal-review-submit" onclick="submitModalReview('${toolId}', '${escapeHtml(toolName)}')">
+                        <i class="fas fa-paper-plane mr-1"></i> 提交评价
+                    </button>
+                    <div id="modal-review-message" class="mt-2"></div>
+                </div>
+            </div>
+        `;
+    
+        return html;
+    } catch (error) {
+        console.error('renderReviewsModal error:', error);
+        return `<div class="alert alert-danger">加载评价失败: ${error.message}</div>`;
+    }
+}
+
+// 提交模态框评价
+async function submitModalReview(toolId, toolName) {
+    const rating = parseInt(document.getElementById('modal-review-rating').value);
+    const comment = document.getElementById('modal-review-comment').value.trim();
+    const author = document.getElementById('modal-review-author').value.trim() || '匿名';
+    const messageDiv = document.getElementById('modal-review-message');
+    
+    if (!rating || rating < 1 || rating > 5) {
+        messageDiv.innerHTML = '<div class="alert alert-warning">请选择评分</div>';
+        return;
+    }
+    
+    if (comment.length < 2) {
+        messageDiv.innerHTML = '<div class="alert alert-warning">评价内容至少需要 2 个字符</div>';
+        return;
+    }
+    
+    const submitBtn = document.getElementById('modal-review-submit');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> 提交中...';
+    
+    try {
+        const response = await fetch('/api/reviews', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ tool_id: toolId, tool_name: toolName, rating, comment, author })
+        });
+    
+        const result = await response.json();
+    
+        if (result.success) {
+            messageDiv.innerHTML = '<div class="alert alert-success">评价提交成功！</div>';
+            // 重新加载评价列表
+            document.getElementById('modal-feedback-body').innerHTML = await renderReviewsModal(toolId, toolName);
+            // 更新详情标签页的评分显示
+            const avgRating = await getToolAverageRating(toolId);
+            const reviewCount = (await getToolReviews(toolId)).length;
+            const ratingLabel = avgRating !== null ? ` · ${avgRating}分 (${reviewCount}条评价)` : '';
+            document.getElementById('modal-title').textContent = toolName + ratingLabel;
+        } else {
+            throw new Error(result.error || '提交失败');
+        }
+    } catch (error) {
+        messageDiv.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-1"></i> 提交评价';
+    }
+}
+
+// 绑定星级选择事件（事件委托）
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('star-btn-modal')) {
+        const container = e.target.closest('.star-rating-modal');
+        const toolId = container.dataset.toolId;
+        const rating = parseInt(e.target.dataset.rating);
+        
+        // 更新星星显示
+        container.querySelectorAll('.star-btn-modal').forEach((star, index) => {
+            if (index < rating) {
+                star.classList.remove('far');
+                star.classList.add('fas');
+                star.style.color = '#ffc107';
+            } else {
+                star.classList.remove('fas');
+                star.classList.add('far');
+                star.style.color = '#ddd';
+            }
+        });
+        
+        // 设置隐藏input值
+        document.getElementById('modal-review-rating').value = rating;
+    }
+});
+
 
 function renderCategoryMenu(categories) {
-    const menu = document.getElementById('category-menu');
-    if (!menu) return;
-    
-    menu.innerHTML = categories.map(cat => `
-        <a class="dropdown-item" href="category.html?category=${cat.id}">
-            ${cat.name} (${cat.tools.length})
-        </a>
-    `).join('');
+const menu = document.getElementById('category-menu');
+if (!menu) return;
+
+menu.innerHTML = categories.map(cat => `
+    <a class="dropdown-item" href="category.html?category=${cat.id}">
+        ${cat.name} (${cat.tools.length})
+    </a>
+`).join('');
 }
 
 /**
  * 渲染分类筛选按钮（筛选区域）
  */
 function renderCategoryFilterButtons(categories) {
-    const container = document.getElementById('category-buttons-container');
-    if (!container) return;
-    
-    container.innerHTML = categories.map(cat => `
-        <button class="category-btn" data-category="${cat.id}">
-            ${cat.name}
-        </button>
-    `).join('');
+const container = document.getElementById('category-buttons-container');
+if (!container) return;
+
+container.innerHTML = categories.map(cat => `
+    <button class="category-btn" data-category="${cat.id}">
+        ${cat.name}
+    </button>
+`).join('');
 }
 
 // ============================================
@@ -1255,17 +1464,17 @@ function renderCategoryFilterButtons(categories) {
 // ============================================
 
 function updateResultCount() {
-    const countEl = document.getElementById('result-count');
-    if (!countEl) return;
-    
-    const total = allTools.length;
-    const shown = currentTools.length;
-    
-    if (shown === total) {
-        countEl.textContent = `共 ${total} 个工具`;
-    } else {
-        countEl.textContent = `显示 ${shown} / ${total} 个工具`;
-    }
+const countEl = document.getElementById('result-count');
+if (!countEl) return;
+
+const total = allTools.length;
+const shown = currentTools.length;
+
+if (shown === total) {
+    countEl.textContent = `共 ${total} 个工具`;
+} else {
+    countEl.textContent = `显示 ${shown} / ${total} 个工具`;
+}
 }
 
 // ============================================
@@ -1273,25 +1482,25 @@ function updateResultCount() {
 // ============================================
 
 function getIconHtml(iconUrl, toolId) {
-    // 优先使用 Emoji
-    if (toolId && EMOJI_ICONS[toolId]) {
-        return EMOJI_ICONS[toolId];
-    }
-    
-    // 回退到图标 URL
-    if (!iconUrl) return '🔧';
-    
-    // Emoji 直接返回
-    if (iconUrl.length <= 4) return iconUrl;
-    
-    // URL 图标（懒加载）
-    return `<img data-src="${iconUrl}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ccc' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/%3E%3C/svg%3E" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='🔧'">`;
+// 优先使用 Emoji
+if (toolId && EMOJI_ICONS[toolId]) {
+    return EMOJI_ICONS[toolId];
+}
+
+// 回退到图标 URL
+if (!iconUrl) return '🔧';
+
+// Emoji 直接返回
+if (iconUrl.length <= 4) return iconUrl;
+
+// URL 图标（懒加载）
+return `<img data-src="${iconUrl}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ccc' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/%3E%3C/svg%3E" alt="" style="width:100%;height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='🔧'">`;
 }
 
 function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+const div = document.createElement('div');
+div.textContent = text;
+return div.innerHTML;
 }
 
 // ============================================
@@ -1299,13 +1508,13 @@ function escapeHtml(text) {
 // ============================================
 
 if (performance && performance.mark) {
-    performance.mark('app-init-start');
-    window.addEventListener('load', () => {
-        performance.mark('app-init-end');
-        performance.measure('app-init', 'app-init-start', 'app-init-end');
-        const measure = performance.getEntriesByName('app-init')[0];
-        if (measure) {
-            console.log(`⏱️ 页面加载耗时: ${measure.duration.toFixed(2)}ms`);
-        }
-    });
+performance.mark('app-init-start');
+window.addEventListener('load', () => {
+    performance.mark('app-init-end');
+    performance.measure('app-init', 'app-init-start', 'app-init-end');
+    const measure = performance.getEntriesByName('app-init')[0];
+    if (measure) {
+        console.log(`⏱️ 页面加载耗时: ${measure.duration.toFixed(2)}ms`);
+    }
+});
 }

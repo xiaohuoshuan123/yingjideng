@@ -3,7 +3,7 @@
 // 处理用户反馈提交 + 邮件通知
 
 export async function onRequest(context) {
-    const { request, env } = context;
+    const { request, env, waitUntil } = context;
     const url = new URL(request.url);
     const method = request.method;
 
@@ -23,7 +23,7 @@ export async function onRequest(context) {
             case 'GET':
                 return await getFeedback(url, env.yingjideng_db);
             case 'POST':
-                return await submitFeedback(request, env.yingjideng_db, env);
+                            return await submitFeedback(request, env.yingjideng_db, env, waitUntil);
             default:
                 return jsonResponse({ error: 'Method not allowed' }, 405);
         }
@@ -71,7 +71,7 @@ async function getFeedback(url, db) {
 }
 
 // 提交反馈
-async function submitFeedback(request, db, env) {
+async function submitFeedback(request, db, env, waitUntil) {
     const body = await request.json();
     const { 
         feedback_type, 
@@ -125,19 +125,19 @@ async function submitFeedback(request, db, env) {
 
     const feedbackId = result.meta.last_row_id;
 
-    // 异步发送邮件通知（不阻塞响应）
-    sendEmailNotification(env, {
-        id: feedbackId,
-        feedback_type,
-        typeLabel: typeLabels[feedback_type] || feedback_type,
-        tool_id: tool_id || '',
-        tool_name: tool_name || '',
-        email: email || '',
-        content: content.trim(),
-        userIp,
-        userAgent,
-        created_at: new Date().toISOString()
-    }).catch(err => console.error('Email notification failed:', err));
+        // 异步发送邮件通知（不阻塞响应，但确保完成）
+        waitUntil(sendEmailNotification(env, {
+            id: feedbackId,
+            feedback_type,
+            typeLabel: typeLabels[feedback_type] || feedback_type,
+            tool_id: tool_id || '',
+            tool_name: tool_name || '',
+            email: email || '',
+            content: content.trim(),
+            userIp,
+            userAgent,
+            created_at: new Date().toISOString()
+        }).catch(err => console.error('Email notification failed:', err)));
 
     return jsonResponse({
         success: true,
@@ -151,8 +151,14 @@ async function sendEmailNotification(env, feedback) {
     // 支持多种邮件服务商：通过环境变量配置
     // RESEND_API_KEY, SENDGRID_API_KEY, MAILGUN_API_KEY, 等
     
-    const adminEmail = env.ADMIN_EMAIL || 'admin@yingjideng.dpdns.org';
-    const fromEmail = env.FROM_EMAIL || 'noreply@yingjideng.dpdns.org';
+    // 强制使用测试配置（绕过预览部署无法读取生产环境变量的问题）
+    const adminEmail = env.ADMIN_EMAIL || 'fanhaobin@gmail.com';
+    const fromEmail = env.FROM_EMAIL || 'onboarding@resend.dev';
+    const apiKey = env.RESEND_API_KEY;
+    if (!apiKey) {
+        console.warn('RESEND_API_KEY 未配置，跳过邮件通知');
+        return;
+    }
     
     const subject = `[yingjideng] 新反馈: ${feedback.typeLabel} #${feedback.id}`;
     
@@ -221,19 +227,19 @@ ${feedback.content}
     `.trim();
 
     // 尝试不同的邮件服务商
-    // 优先级: Resend > SendGrid > Mailgun > 仅记录日志
+        // 优先级: Resend > SendGrid > Mailgun > 仅记录日志
     
-    if (env.RESEND_API_KEY) {
-        return await sendViaResend(env.RESEND_API_KEY, fromEmail, adminEmail, subject, htmlContent, textContent);
-    }
+        if (apiKey) {
+            return await sendViaResend(apiKey, fromEmail, adminEmail, subject, htmlContent, textContent);
+        }
     
-    if (env.SENDGRID_API_KEY) {
-        return await sendViaSendGrid(env.SENDGRID_API_KEY, fromEmail, adminEmail, subject, htmlContent, textContent);
-    }
+        if (env.SENDGRID_API_KEY) {
+            return await sendViaSendGrid(env.SENDGRID_API_KEY, fromEmail, adminEmail, subject, htmlContent, textContent);
+        }
     
-    if (env.MAILGUN_API_KEY && env.MAILGUN_DOMAIN) {
-        return await sendViaMailgun(env.MAILGUN_API_KEY, env.MAILGUN_DOMAIN, fromEmail, adminEmail, subject, htmlContent, textContent);
-    }
+        if (env.MAILGUN_API_KEY && env.MAILGUN_DOMAIN) {
+            return await sendViaMailgun(env.MAILGUN_API_KEY, env.MAILGUN_DOMAIN, fromEmail, adminEmail, subject, htmlContent, textContent);
+        }
 
     // 没有配置邮件服务时，仅记录日志（生产环境建议配置）
     console.log('📧 [Feedback Email] No email service configured. Notification logged:', {
@@ -314,3 +320,6 @@ function jsonResponse(data, status = 200) {
         }
     });
 }
+
+// Export for testing
+export { sendEmailNotification };
