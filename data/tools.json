@@ -3512,6 +3512,17 @@
           "automation": null,
           "is_free": "yes",
           "icon": "🔧"
+        },
+        {
+          "id": "agent-qa",
+          "name": "agent-qa",
+          "url": "https://vostride.com",
+          "description": "自然语言 Web、Android 与 iOS 测试，结合 memidex 持久记忆、运行证据和经验证的自我改进。可通过 CLI、MCP 与编码助手技能使用；本地工具免费，模型服务费用依配置另计。",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🧪"
         }
       ]
     }
