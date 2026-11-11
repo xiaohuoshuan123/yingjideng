@@ -753,3 +753,58 @@ mark.search-highlight {
 .progress-bar {
     transition: width 0.5s ease-out;
 }
+
+
+/* ========================================
+   地区筛选按钮（国内/国外）
+   ======================================== */
+.region-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    background: #fff;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.region-btn:hover { background: #f0f0f0; }
+.region-btn.active {
+    background: var(--primary-color, #2f6fed);
+    color: #fff;
+    border-color: var(--primary-color, #2f6fed);
+}
+.region-btn[data-region="cn"].active {
+    background: #c0392b;
+    border-color: #c0392b;
+}
+.region-btn[data-region="intl"].active {
+    background: #1f6feb;
+    border-color: #1f6feb;
+}
+
+/* 地区徽章 */
+.region-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+.region-badge.cn {
+    background: #fdecea;
+    color: #c0392b;
+    border: 1px solid #f5b7b1;
+}
+.region-badge.intl {
+    background: #eaf3ff;
+    color: #1f6feb;
+    border: 1px solid #b6d4fe;
+}
+@media (max-width: 768px) {
+    .region-btn { text-align: left; }
+}

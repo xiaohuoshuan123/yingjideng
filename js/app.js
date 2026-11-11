@@ -14,6 +14,7 @@ let currentCategory = 'all';
 let currentAiType = 'all';
 let currentSearch = '';
 let currentSort = 'default';
+let currentRegion = 'all';
 let isCategoryPage = false;
 
 // 搜索历史（localStorage）
@@ -412,6 +413,7 @@ class VirtualScroll {
                         <span class="tool-title">${highlightedName}</span>
                         ${aiBadge}
                         ${priceBadge}
+                        ${getRegionBadge(tool)}
                     </div>
                 </div>
                 <div class="tool-card-body">
@@ -637,7 +639,7 @@ function showNoResultsSuggestions() {
     }
     
     // 3. 清除筛选建议
-    if (currentCategory !== 'all' || currentAiType !== 'all') {
+    if (currentCategory !== 'all' || currentAiType !== 'all' || currentRegion !== 'all') {
         suggestions.push(`<a href="javascript:clearFilters()">清除当前筛选</a>`);
     }
     
@@ -658,6 +660,7 @@ function clearFilters() {
     currentAiType = 'all';
     currentSearch = '';
     currentSort = 'default';
+    currentRegion = 'all';
     
     const searchInput = document.getElementById('search-input');
     if (searchInput) searchInput.value = '';
@@ -678,6 +681,12 @@ function updateFilterButtons() {
     document.querySelectorAll('.filter-btn').forEach(btn => {
         const filter = btn.dataset.filter;
         btn.classList.toggle('active', filter === currentAiType);
+    });
+    
+    // 地区按钮（国内/国外）
+    document.querySelectorAll('.region-btn').forEach(btn => {
+        const region = btn.dataset.region;
+        btn.classList.toggle('active', region === currentRegion);
     });
     
     // 分类按钮（筛选区域）
@@ -708,6 +717,14 @@ function bindEvents() {
             if (currentAiType === 'all') {
                 currentCategory = 'all';
             }
+            applyFilters();
+        });
+    });
+    
+    // 地区筛选（国内/国外）
+    document.querySelectorAll('.region-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            currentRegion = this.dataset.region;
             applyFilters();
         });
     });
@@ -875,6 +892,10 @@ function readURLParams() {
     if (sort && ['default', 'name', 'free'].includes(sort)) {
         currentSort = sort;
     }
+    const region = params.get('region');
+    if (region && ['all', 'cn', 'intl'].includes(region)) {
+        currentRegion = region;
+    }
 }
 
 /**
@@ -882,7 +903,7 @@ function readURLParams() {
  */
 function syncURL() {
     const url = new URL(window.location);
-    const hasParams = currentCategory !== 'all' || currentAiType !== 'all' || currentSearch || currentSort !== 'default';
+    const hasParams = currentCategory !== 'all' || currentAiType !== 'all' || currentRegion !== 'all' || currentSearch || currentSort !== 'default';
     
     if (hasParams) {
         if (currentCategory !== 'all') url.searchParams.set('category', currentCategory);
@@ -890,6 +911,9 @@ function syncURL() {
         
         if (currentAiType !== 'all') url.searchParams.set('ai-type', currentAiType);
         else url.searchParams.delete('ai-type');
+        
+        if (currentRegion !== 'all') url.searchParams.set('region', currentRegion);
+        else url.searchParams.delete('region');
         
         if (currentSearch) url.searchParams.set('q', currentSearch);
         else url.searchParams.delete('q');
@@ -993,6 +1017,9 @@ function applyFilters() {
         
         // AI 类型筛选
         if (currentAiType !== 'all' && tool.ai_type !== currentAiType) return false;
+        
+        // 地区筛选（国内/国外）
+        if (currentRegion !== 'all' && tool.region !== currentRegion) return false;
         
         // 搜索筛选
         if (currentSearch && !matchesSearch(tool, currentSearch)) return false;
@@ -1117,6 +1144,7 @@ function renderTools() {
                         <span class="tool-title">${highlightedName}</span>
                         ${aiBadge}
                         ${priceBadge}
+                        ${getRegionBadge(tool)}
                     </div>
                 </div>
                 <div class="tool-card-body">
@@ -1161,6 +1189,7 @@ function renderTools() {
             <div style="margin-top: 12px;">
                 <span class="ai-badge ${aiInfo.class}">${aiInfo.label}</span>
                 ${priceInfo ? `<span class="tool-price ${priceInfo.class}">${priceInfo.label}</span>` : ''}
+                ${getRegionBadge(tool)}
                 <span class="badge badge-secondary">${tool.category_name}</span>
             </div>
     `;
@@ -1480,6 +1509,12 @@ if (shown === total) {
 // ============================================
 // 工具函数
 // ============================================
+
+function getRegionBadge(tool) {
+    return tool.region === 'cn'
+        ? '<span class="region-badge cn">🇨🇳 国内</span>'
+        : '<span class="region-badge intl">🌍 国外</span>';
+}
 
 function getIconHtml(iconUrl, toolId) {
 // 优先使用 Emoji
