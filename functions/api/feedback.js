@@ -1,6 +1,15 @@
 // Cloudflare Pages Function: Feedback API
 // 路径: functions/api/feedback.js
 // 处理用户反馈提交 + 邮件通知
+//
+// 邮件投递诊断说明：
+//   发件人默认 env.FROM_EMAIL || 'onboarding@resend.dev'
+//   Resend 的 onboarding@resend.dev 只能投递给 Resend 账户注册邮箱（当前为 fanhaobin@gmail.com）
+//   收件人默认 env.ADMIN_EMAIL || 'fanhaobin@gmail.com'
+//
+// 诊断接口（安全，需 EMAIL_TEST_SECRET）：
+//   GET /api/feedback?action=email_diag&key=<EMAIL_TEST_SECRET>
+//   返回：环境变量在位情况（脱敏）+ 实际发送一封测试邮件 + Resend 原始响应
 
 export async function onRequest(context) {
     const { request, env, waitUntil } = context;
@@ -21,9 +30,13 @@ export async function onRequest(context) {
     try {
         switch (method) {
             case 'GET':
+                // 诊断模式：?action=email_diag&key=...
+                if (url.searchParams.get('action') === 'email_diag') {
+                    return await emailDiag(url, env);
+                }
                 return await getFeedback(url, env.yingjideng_db);
             case 'POST':
-                            return await submitFeedback(request, env.yingjideng_db, env, waitUntil);
+                return await submitFeedback(request, env.yingjideng_db, env, waitUntil);
             default:
                 return jsonResponse({ error: 'Method not allowed' }, 405);
         }
@@ -151,13 +164,12 @@ async function sendEmailNotification(env, feedback) {
     // 支持多种邮件服务商：通过环境变量配置
     // RESEND_API_KEY, SENDGRID_API_KEY, MAILGUN_API_KEY, 等
     
-    // 强制使用测试配置（绕过预览部署无法读取生产环境变量的问题）
     const adminEmail = env.ADMIN_EMAIL || 'fanhaobin@gmail.com';
     const fromEmail = env.FROM_EMAIL || 'onboarding@resend.dev';
     const apiKey = env.RESEND_API_KEY;
     if (!apiKey) {
         console.warn('RESEND_API_KEY 未配置，跳过邮件通知');
-        return;
+        return { success: false, reason: 'RESEND_API_KEY not configured' };
     }
     
     const subject = `[yingjideng] 新反馈: ${feedback.typeLabel} #${feedback.id}`;
@@ -227,19 +239,31 @@ ${feedback.content}
     `.trim();
 
     // 尝试不同的邮件服务商
-        // 优先级: Resend > SendGrid > Mailgun > 仅记录日志
-    
-        if (apiKey) {
-            return await sendViaResend(apiKey, fromEmail, adminEmail, subject, htmlContent, textContent);
+    // 优先级: Resend > SendGrid > Mailgun > 仅记录日志
+    let emailResult;
+
+    if (apiKey) {
+        try {
+            emailResult = await sendViaResend(apiKey, fromEmail, adminEmail, subject, htmlContent, textContent);
+            console.log('📧 [Feedback Email] Resend 发送结果:', JSON.stringify(emailResult));
+        } catch (err) {
+            console.error('📧 [Feedback Email] Resend 发送异常:', err.message || err);
+            return { success: false, provider: 'resend', error: err.message || String(err) };
         }
+        return emailResult;
+    }
     
-        if (env.SENDGRID_API_KEY) {
-            return await sendViaSendGrid(env.SENDGRID_API_KEY, fromEmail, adminEmail, subject, htmlContent, textContent);
-        }
+    if (env.SENDGRID_API_KEY) {
+        emailResult = await sendViaSendGrid(env.SENDGRID_API_KEY, fromEmail, adminEmail, subject, htmlContent, textContent);
+        console.log('📧 [Feedback Email] SendGrid 发送结果:', JSON.stringify(emailResult));
+        return emailResult;
+    }
     
-        if (env.MAILGUN_API_KEY && env.MAILGUN_DOMAIN) {
-            return await sendViaMailgun(env.MAILGUN_API_KEY, env.MAILGUN_DOMAIN, fromEmail, adminEmail, subject, htmlContent, textContent);
-        }
+    if (env.MAILGUN_API_KEY && env.MAILGUN_DOMAIN) {
+        emailResult = await sendViaMailgun(env.MAILGUN_API_KEY, env.MAILGUN_DOMAIN, fromEmail, adminEmail, subject, htmlContent, textContent);
+        console.log('📧 [Feedback Email] Mailgun 发送结果:', JSON.stringify(emailResult));
+        return emailResult;
+    }
 
     // 没有配置邮件服务时，仅记录日志（生产环境建议配置）
     console.log('📧 [Feedback Email] No email service configured. Notification logged:', {
@@ -261,7 +285,15 @@ async function sendViaResend(apiKey, from, to, subject, html, text) {
         },
         body: JSON.stringify({ from, to, subject, html, text })
     });
-    return response.json();
+    const data = await response.json();
+    // 状态检查：非 2xx 时抛出，携带 Resend 错误正文，便于日志排查
+    if (!response.ok) {
+        const err = new Error(`Resend HTTP ${response.status}: ${JSON.stringify(data)}`);
+        err.status = response.status;
+        err.body = data;
+        throw err;
+    }
+    return data;
 }
 
 // SendGrid API
@@ -281,7 +313,14 @@ async function sendViaSendGrid(apiKey, from, to, subject, html, text) {
             ]
         })
     });
-    return response.json();
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+        const err = new Error(`SendGrid HTTP ${response.status}: ${JSON.stringify(data)}`);
+        err.status = response.status;
+        err.body = data;
+        throw err;
+    }
+    return data;
 }
 
 // Mailgun API
@@ -300,7 +339,52 @@ async function sendViaMailgun(apiKey, domain, from, to, subject, html, text) {
         },
         body: formData
     });
-    return response.json();
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+        const err = new Error(`Mailgun HTTP ${response.status}: ${JSON.stringify(data)}`);
+        err.status = response.status;
+        err.body = data;
+        throw err;
+    }
+    return data;
+}
+
+// 邮件诊断接口（受 EMAIL_TEST_SECRET 保护）
+// GET /api/feedback?action=email_diag&key=<EMAIL_TEST_SECRET>
+async function emailDiag(url, env) {
+    const key = url.searchParams.get('key');
+    const secret = env.EMAIL_TEST_SECRET;
+    if (!secret || key !== secret) {
+        return jsonResponse({ error: 'Unauthorized: 缺少或错误的 key，需匹配 EMAIL_TEST_SECRET' }, 403);
+    }
+
+    // 环境变量在位情况（脱敏）
+    const masked = (v) => (v ? (String(v).slice(0, 6) + '…' + (String(v).length > 10 ? ' (' + String(v).length + ' chars)' : '')) : '(未设置)');
+    const envStatus = {
+        RESEND_API_KEY: env.RESEND_API_KEY ? '已设置: ' + masked(env.RESEND_API_KEY) : '未设置',
+        SENDGRID_API_KEY: env.SENDGRID_API_KEY ? '已设置' : '未设置',
+        MAILGUN_API_KEY: env.MAILGUN_API_KEY ? '已设置' : '未设置',
+        MAILGUN_DOMAIN: env.MAILGUN_DOMAIN ? '已设置' : '未设置',
+        ADMIN_EMAIL: env.ADMIN_EMAIL || '(默认) fanhaobin@gmail.com',
+        FROM_EMAIL: env.FROM_EMAIL || '(默认) onboarding@resend.dev',
+        EMAIL_TEST_SECRET: env.EMAIL_TEST_SECRET ? '已设置' : '未设置',
+    };
+
+    // 实际发送一封测试邮件（不抛异常，返回原始结果）
+    const result = await sendEmailNotification(env, {
+        id: 'DIAG-' + Date.now(),
+        feedback_type: 'test',
+        typeLabel: '🧪 邮件诊断',
+        tool_id: '',
+        tool_name: '',
+        email: '',
+        content: '这是一封来自 yingjideng 邮件诊断接口的测试邮件，用于确认邮件通知是否可达。',
+        userIp: '127.0.0.1',
+        userAgent: 'diagnostic',
+        created_at: new Date().toISOString()
+    }).catch(err => ({ success: false, error: err.message || String(err) }));
+
+    return jsonResponse({ env: envStatus, sendResult: result });
 }
 
 function escapeHtml(text) {
