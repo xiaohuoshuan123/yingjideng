@@ -904,6 +904,66 @@
           "is_free": "yes",
           "icon": "📝",
           "region": "cn"
+        },
+        {
+          "id": "flowus-ai",
+          "name": "FlowUs AI",
+          "url": "https://flowus.cn/",
+          "description": "国内知识管理与文档协作平台，AI 创作助手（类 Notion AI）",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📚",
+          "region": "cn"
+        },
+        {
+          "id": "xiaohuanxiong",
+          "name": "办公小浣熊",
+          "url": "https://www.xiaohuanxiong.com/",
+          "description": "商汤 AI 办公助手，文档编辑+数据分析，PAW 三步法",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🐻",
+          "region": "cn"
+        },
+        {
+          "id": "beijijiu",
+          "name": "北极九章",
+          "url": "https://datarc.cn/",
+          "description": "语音/打字提问生成图文数据结果，语义理解查询逻辑",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊",
+          "region": "cn"
+        },
+        {
+          "id": "135-ai",
+          "name": "135 AI排版",
+          "url": "https://www.135editor.com/ai_editor",
+          "description": "135编辑器 AI 排版，公众号图文智能排版",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🖼️",
+          "region": "cn"
+        },
+        {
+          "id": "kubao",
+          "name": "库宝AI工作助手",
+          "url": "https://588ku.com/aicenter",
+          "description": "千库网 AI 创作中心，集成设计、写作、对话、办公五大模块",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨",
+          "region": "cn"
         }
       ]
     },
@@ -1171,6 +1231,54 @@
           "is_free": "paid",
           "icon": "🎥",
           "region": "intl"
+        },
+        {
+          "id": "liblib-tv",
+          "name": "LibTV",
+          "url": "https://www.liblib.tv/",
+          "description": "AI 工业化视频生产，节点工作流 + AI Agent 降本增效",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎥",
+          "region": "cn"
+        },
+        {
+          "id": "liblibai",
+          "name": "LiblibAI",
+          "url": "https://www.liblib.art/",
+          "description": "AI 图文视频创意平台，10万+ 模型免费下载，在线 webUI/comfyUI",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨",
+          "region": "cn"
+        },
+        {
+          "id": "bairimeng",
+          "name": "白日梦AI",
+          "url": "https://aibrm.com/",
+          "description": "AI 视频创作 AIGC 平台，AI 视频生成、编辑、制作",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💭",
+          "region": "cn"
+        },
+        {
+          "id": "duiyou-video",
+          "name": "堆友AI视频",
+          "url": "https://d.design/ai/",
+          "description": "堆友 AI 视频生成，基于万相2.2模型，图生视频/文生视频",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎬",
+          "region": "cn"
         }
       ]
     },
@@ -1396,6 +1504,18 @@
           "is_free": "freemium",
           "icon": "🌱",
           "region": "intl"
+        },
+        {
+          "id": "aidaxue",
+          "name": "AI大学堂",
+          "url": "https://www.aidaxue.com/",
+          "description": "AI 学习平台，AI 教程与课程",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎓",
+          "region": "cn"
         }
       ]
     },
@@ -1662,6 +1782,18 @@
           "automation": null,
           "is_free": "freemium",
           "icon": "🌐",
+          "region": "cn"
+        },
+        {
+          "id": "volcengine",
+          "name": "火山引擎",
+          "url": "https://www.volcengine.com/",
+          "description": "字节跳动企业云，云服务器、模型服务、视频云等",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌋",
           "region": "cn"
         }
       ]
@@ -2155,6 +2287,30 @@
           "is_free": "freemium",
           "icon": "📊",
           "region": "intl"
+        },
+        {
+          "id": "qiangua",
+          "name": "千瓜数据",
+          "url": "https://www.qian-gua.com/",
+          "description": "小红书数据分析与种草投放工具",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📈",
+          "region": "cn"
+        },
+        {
+          "id": "xinbang",
+          "name": "新榜",
+          "url": "https://www.newrank.cn/",
+          "description": "新媒体内容数据与榜单平台",
+          "ai_type": "traditional",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📊",
+          "region": "cn"
         }
       ]
     },
@@ -2425,6 +2581,42 @@
           "is_free": "freemium",
           "icon": "🧪",
           "region": "cn"
+        },
+        {
+          "id": "nanmi",
+          "name": "纳米AI",
+          "url": "https://so.360.com/",
+          "description": "360 纳米AI，多智能体蜂群，一句话生成视频/报告/PPT，集成 DeepSeek 等大模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🧭",
+          "region": "cn"
+        },
+        {
+          "id": "360-zhinao",
+          "name": "360智脑",
+          "url": "https://ai.360.com/",
+          "description": "360 大模型助手，AI 对话、搜索、写作",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🧠",
+          "region": "cn"
+        },
+        {
+          "id": "promptpilot",
+          "name": "PromptPilot",
+          "url": "https://promptpilot.volcengine.com/",
+          "description": "火山引擎提示词助手，AI 提示词管理与生成",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💡",
+          "region": "cn"
         }
       ]
     },
@@ -2566,6 +2758,150 @@
           "is_free": "freemium",
           "icon": "📋",
           "region": "intl"
+        },
+        {
+          "id": "youdao-ai-write",
+          "name": "有道翻译·AI写作",
+          "url": "https://fanyi.youdao.com/",
+          "description": "网易有道 AI 写作与翻译，支持论文、邮件、公文一键生成，润色、扩写、总结、去重",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📝",
+          "region": "cn"
+        },
+        {
+          "id": "ifly-write",
+          "name": "讯飞写作",
+          "url": "https://huixie.iflyrec.com/",
+          "description": "科大讯飞 AI 写作助手，对话式快速生成新闻、广告、会议纪要等文本",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "✍️",
+          "region": "cn"
+        },
+        {
+          "id": "orange-pian",
+          "name": "橙篇",
+          "url": "https://cp.baidu.com/",
+          "description": "百度 AI 原生应用，基于百度文库内容库，长文件处理与内容创作",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "📄",
+          "region": "cn"
+        },
+        {
+          "id": "wenzhuangyuan",
+          "name": "文状元",
+          "url": "https://www.wenzhuangyuan.cn/",
+          "description": "AI 公文写作助手，一键生成工作报告、策划等框架，语法纠错、句式推荐",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🏛️",
+          "region": "cn"
+        },
+        {
+          "id": "gongwenbao",
+          "name": "公文宝",
+          "url": "https://www.gongwenbao666.com/",
+          "description": "面向体制内的 AI 公文写作专家，发言稿、纪要、总结一键成稿",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📋",
+          "region": "cn"
+        },
+        {
+          "id": "shenyandayi",
+          "name": "深言达意",
+          "url": "https://www.shenyandayi.com/",
+          "description": "清华&智源孵化的免费词句查询工具，据意查词、据意查句、语料查询",
+          "ai_type": "ai-enhanced",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🔤",
+          "region": "cn"
+        },
+        {
+          "id": "caiyun-xiaomeng",
+          "name": "彩云小梦",
+          "url": "https://if.caiyunai.com/",
+          "description": "彩云科技 AI 故事写作，输入开头自动续写完整故事，角色扮演",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌈",
+          "region": "cn"
+        },
+        {
+          "id": "giiso",
+          "name": "Giiso写作机器人",
+          "url": "https://www.giiso.com/",
+          "description": "内容创作 AI 辅助工具，智能写作、素材提取",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🧾",
+          "region": "cn"
+        },
+        {
+          "id": "zhangqiao",
+          "name": "掌桥科研AI论文",
+          "url": "https://www.zhangqiaokeyan.com/",
+          "description": "基于 3亿+ 文献的智能写作平台，快速生成学术论文范文",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎓",
+          "region": "cn"
+        },
+        {
+          "id": "paperxie",
+          "name": "PaperXie",
+          "url": "https://www.paperxie.cn/",
+          "description": "AI 学术写作，融合 DeepSeek-R1，从论文构思到答辩全流程",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📑",
+          "region": "cn"
+        },
+        {
+          "id": "xunjie-aiwrite",
+          "name": "迅捷AI写作",
+          "url": "https://www.aichat1234.com/",
+          "description": "迅捷办公 AI 写作，文章生成、标题创作、改写、续写、扩写",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "⚡",
+          "region": "cn"
+        },
+        {
+          "id": "maomaochong",
+          "name": "茅茅虫AIGC降AI率",
+          "url": "https://www.mmc.cc/aigc-check",
+          "description": "AIGC 检测与降 AI 率工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🔍",
+          "region": "cn"
         }
       ]
     },
@@ -3369,6 +3705,30 @@
           "is_free": "freemium",
           "icon": "🌌",
           "region": "cn"
+        },
+        {
+          "id": "xinliu",
+          "name": "心流",
+          "url": "https://iflow.cn/",
+          "description": "心流 AI，AI 搜索与知识助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🌊",
+          "region": "cn"
+        },
+        {
+          "id": "dakou",
+          "name": "搭叩",
+          "url": "https://dakou.iflow.cn/",
+          "description": "搭叩，AI 智能体搜索与问答",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎯",
+          "region": "cn"
         }
       ]
     },
@@ -3541,6 +3901,42 @@
           "is_free": "freemium",
           "icon": "🎬",
           "region": "cn"
+        },
+        {
+          "id": "zaomeng-riji",
+          "name": "造梦日记",
+          "url": "https://zmrj.art/",
+          "description": "西湖大学&西湖心辰 AI 图片生成，文生图/图生图，支持小程序与网页",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎨",
+          "region": "cn"
+        },
+        {
+          "id": "miaohua",
+          "name": "商汤秒画",
+          "url": "https://miaohua.sensetime.com/",
+          "description": "商汤 70 亿参数 Artist 模型 AI 绘画平台，精准控制与风格模型",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🖌️",
+          "region": "cn"
+        },
+        {
+          "id": "duiyou-3d",
+          "name": "堆友AI反应堆",
+          "url": "https://d.design/",
+          "description": "阿里巴巴设计师团队，免费可商用 3D 头像/场景/元素，AI 生图",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🧊",
+          "region": "cn"
         }
       ]
     },
@@ -3677,6 +4073,18 @@
           "is_free": "freemium",
           "icon": "📖",
           "region": "intl"
+        },
+        {
+          "id": "ifly-zhizuo",
+          "name": "讯飞智作",
+          "url": "https://www.xfzhizuo.cn/",
+          "description": "科大讯飞 AI 配音/虚拟人，数字人合成、短视频配音",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🎙️",
+          "region": "cn"
         }
       ]
     },
@@ -3839,6 +4247,18 @@
           "is_free": "freemium",
           "icon": "🏗️",
           "region": "intl"
+        },
+        {
+          "id": "01agent",
+          "name": "01Agent",
+          "url": "https://01agent.net/",
+          "description": "AI 图文生成，小红书/公众号/电商图文一键排版多平台发布",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🧩",
+          "region": "cn"
         }
       ]
     },
@@ -4015,6 +4435,66 @@
           "automation": null,
           "is_free": "yes",
           "icon": "🕸️",
+          "region": "cn"
+        },
+        {
+          "id": "ifly-agent",
+          "name": "讯飞星辰Agent",
+          "url": "https://agent.xfyun.cn/",
+          "description": "科大讯飞 AI 智能体开发平台，全面支持 MCP，零代码/低代码开发",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🧠",
+          "region": "cn"
+        },
+        {
+          "id": "aipyaipy",
+          "name": "爱派AiPy",
+          "url": "https://www.aipyaipy.com/",
+          "description": "国产开源 AI 智能体工厂，LLM + Python，自然语言操作电脑软件",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "yes",
+          "icon": "🐍",
+          "region": "cn"
+        },
+        {
+          "id": "codeflying",
+          "name": "码上飞CodeFlying",
+          "url": "https://www.codeflying.net/",
+          "description": "AI 软件研发平台，自然语言生成全栈应用",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🚀",
+          "region": "cn"
+        },
+        {
+          "id": "iflow-cli",
+          "name": "iFlow CLI",
+          "url": "https://cli.iflow.cn/",
+          "description": "心流 CLI，命令行 AI 工具",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "💻",
+          "region": "cn"
+        },
+        {
+          "id": "astronclaw",
+          "name": "AstronClaw",
+          "url": "https://agent.xfyun.cn/astron-claw",
+          "description": "科大讯飞云端 OpenClaw，一键创建 7×24 在线个人 AI 助手",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "🦾",
           "region": "cn"
         }
       ]
