@@ -1516,6 +1516,18 @@
           "is_free": "freemium",
           "icon": "🎓",
           "region": "cn"
+        },
+        {
+          "id": "studyarena",
+          "name": "StudyArena",
+          "url": "https://studyarena.com",
+          "description": "并排看三个 AI 对同一道学习题的解答，投票后揭晓模型。免费方案需注册。",
+          "ai_type": "ai-native",
+          "ai_alternative": null,
+          "automation": null,
+          "is_free": "freemium",
+          "icon": "📚",
+          "region": "intl"
         }
       ]
     },
